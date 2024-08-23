@@ -1,0 +1,11 @@
+name: firebase_admin_js_interop
+description: A starting point for Dart libraries or applications.
+version: 1.0.0
+
+environment:
+  sdk: ^3.6.0-149.3.beta
+
+dependencies:
+dev_dependencies:
+  test: ^1.24.0
+  rexios_lints: ^8.0.0
