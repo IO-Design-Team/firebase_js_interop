@@ -17,7 +17,7 @@
 
 import 'dart:js_interop';
 
-import 'package:firebase_admin_js_interop/src/app/credential.dart';
+import 'credential.dart';
 
 
 /// Available options to pass to {@link firebase-admin.app#initializeApp}.

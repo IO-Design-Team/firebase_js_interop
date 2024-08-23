@@ -17,7 +17,7 @@
 
 import 'dart:js_interop';
 
-import 'package:firebase_admin_js_interop/src/app/core.dart';
+import 'core.dart';
 
 /// Access to the Firebase Admin App lifecycle methods
 @JS()
