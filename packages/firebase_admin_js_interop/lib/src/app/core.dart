@@ -68,6 +68,17 @@ extension type AppOptions._(JSObject _) implements JSObject {
   /// specifying an HTTP Agent in the corresponding factory methods.
   // TODO: Implement this?
   // external Agent? get httpAgent;
+
+  /// Constructor
+  external factory AppOptions({
+    Credential? credential,
+    JSObject? databaseAuthVariableOverride,
+    String? databaseURL,
+    String? serviceAccountId,
+    String? storageBucket,
+    String? projectId,
+    // Agent? httpAgent,
+  });
 }
 
 /// A Firebase app holds the initialization information for a collection of

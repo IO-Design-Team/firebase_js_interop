@@ -1,6 +1,3 @@
-@JS('firebase-functions.https')
-library;
-
 import 'dart:js_interop';
 
 /// Options that can be set on an onRequest HTTPS function.
@@ -102,11 +99,15 @@ extension type HttpsOptions._(JSObject _) implements JSObject {
   });
 }
 
-/// Handles HTTPS requests.
-/// @param opts - Options to set on this function
-/// @param handler - A function that takes a {@link https.Request} and response object, same signature as an Express app.
-/// @returns A function that you can export and deploy.
-external void onRequest({
-  HttpsOptions opts,
-  required JSFunction handler,
-});
+@JS()
+@anonymous
+extension type FirebaseFunctionsHttps._(JSObject _) implements JSObject {
+  /// Handles HTTPS requests.
+  /// @param opts - Options to set on this function
+  /// @param handler - A function that takes a {@link https.Request} and response object, same signature as an Express app.
+  /// @returns A function that you can export and deploy.
+  external JSFunction onRequest([
+    JSObject optsOrHandler,
+    JSFunction? handler,
+  ]);
+}

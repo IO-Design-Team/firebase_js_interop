@@ -19,14 +19,19 @@ import 'dart:js_interop';
 
 import 'package:firebase_admin_js_interop/src/app/core.dart';
 
-/// Initializes and returns a Firebase App instance.
-external App initializeApp({AppOptions? options, String appName});
+/// Access to the Firebase Admin App lifecycle methods
+@JS()
+@anonymous
+extension type FirebaseAdminApp._(JSObject _) implements JSObject {
+  /// Initializes and returns a Firebase App instance.
+  external App initializeApp([AppOptions? options, String appName]);
 
-/// Get a Firebase App instance by name
-external App getApp([String appName]);
+  /// Get a Firebase App instance by name
+  external App getApp([String appName]);
 
-/// Returns an array of all the non-deleted Firebase App instances.
-external JSArray<App> getApps();
+  /// Returns an array of all the non-deleted Firebase App instances.
+  external JSArray<App> getApps();
 
-/// Deletes a Firebase App instance.
-external void deleteApp(String appName);
+  /// Deletes a Firebase App instance.
+  external void deleteApp(String appName);
+}
