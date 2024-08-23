@@ -1,5 +1,5 @@
 name: firebase_js_interop
-description: A starting point for Dart libraries or applications.
+description: Wrappers and tools for composing Firebase Functions in the Dart language
 version: 1.0.0
 
 environment:
