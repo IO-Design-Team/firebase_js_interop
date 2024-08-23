@@ -1,3 +1,6 @@
+// These comments are copied verbatim from the JS SDK
+// ignore_for_file: doc_directive_unknown
+
 /*!
  * @license
  * Copyright 2021 Google Inc.
@@ -17,7 +20,7 @@
 
 import 'dart:js_interop';
 
-import 'credential.dart';
+import 'package:firebase_js_interop/src/admin/app/credential.dart';
 
 
 /// Available options to pass to {@link firebase-admin.app#initializeApp}.
