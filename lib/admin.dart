@@ -7,6 +7,7 @@ export 'src/admin/app/app.dart';
 sealed class FirebaseAdmin {
   FirebaseAdmin._();
 
+  /// Access to the Firebase Admin App lifecycle methods
   static FirebaseAdminApp get app =>
       require('firebase-admin/app') as FirebaseAdminApp;
 }
