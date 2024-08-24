@@ -100,7 +100,6 @@ extension type HttpsOptions._(JSObject _) implements JSObject {
 }
 
 /// The Firebase Functions HTTPS namespace.
-@JS()
 extension type FirebaseFunctionsHttps._(JSObject _) implements JSObject {
   /// Handles HTTPS requests.
   /// @param opts - Options to set on this function

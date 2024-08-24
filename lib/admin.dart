@@ -1,7 +1,7 @@
 import 'package:firebase_js_interop/admin.dart';
 import 'package:firebase_js_interop/node.dart';
 
-export 'src/admin/app/app.dart';
+export 'src/admin/app/index.dart';
 
 /// Access to Firebase Admin components
 sealed class FirebaseAdmin {
