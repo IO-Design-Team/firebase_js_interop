@@ -17,6 +17,10 @@
 
 import 'dart:js_interop';
 
+export 'firestore.dart';
+
+import 'package:firebase_js_interop/src/admin/firestore/firestore.dart';
+
 /// Access to the Firebase Admin App lifecycle methods
 extension type FirebaseAdminFirestore._(JSObject _) implements JSObject {
   external Firestore getFirestore([
