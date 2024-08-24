@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:node_preamble/preamble.dart';
 
 /// A pre-built function to convert dart code into Functions-compatible JS
-/// 
+///
 /// A dart file named `src/index.dart` is compiled to `lib/index.js`
 /// which will be used by the Functions runtime
 Future<void> build() async {

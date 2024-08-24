@@ -22,7 +22,6 @@ import 'dart:js_interop';
 
 import 'package:firebase_js_interop/src/admin/app/credential.dart';
 
-
 /// Available options to pass to {@link firebase-admin.app#initializeApp}.
 extension type AppOptions._(JSObject _) implements JSObject {
   /// A {@link firebase-admin.app#Credential} object used to

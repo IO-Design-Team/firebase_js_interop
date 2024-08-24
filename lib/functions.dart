@@ -4,7 +4,7 @@ import 'package:firebase_js_interop/node.dart';
 export 'src/functions/https.dart';
 
 /// Access to Firebase Functions components
-sealed class FirebaseFunctions {
+abstract final class FirebaseFunctions {
   FirebaseFunctions._();
 
   /// Access to the Firebase Functions HTTPS methods
