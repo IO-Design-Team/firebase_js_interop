@@ -21,8 +21,9 @@ export 'firestore.dart';
 
 import 'package:firebase_js_interop/src/admin/firestore/firestore.dart';
 
-/// Access to the Firebase Admin App lifecycle methods
+/// Access to the Firebase Admin Firestore methods
 extension type FirebaseAdminFirestore._(JSObject _) implements JSObject {
+  /// Get a Firestore instance for the current app
   external Firestore getFirestore([
     JSAny? appOrDatabaseId,
     String? optionalDatabaseId,

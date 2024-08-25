@@ -19,6 +19,8 @@
 
 import 'dart:js_interop';
 
+import 'package:firebase_js_interop/typescript.dart';
+
 /// Converter used by `withConverter()` to transform user objects of type
 /// `AppModelType` into Firestore data of type `DbModelType`.
 ///
@@ -722,7 +724,7 @@ extension type BulkWriterOptions._(JSObject _) implements JSObject {
 
 /// The error thrown when a BulkWriter operation fails.
 
-extension type BulkWriterError._(JSObject _) implements JSObject {
+extension type BulkWriterError._(JSObject _) implements Error {
   /// The status code of the error.
   ///
   /// See [GrpcStatus]
@@ -1147,7 +1149,7 @@ extension type DocumentSnapshot._(JSObject _) implements JSObject {
 /// `DocumentSnapshot`. Since query results contain only existing documents, the
 /// `exists` property will always be true and `data()` will never return
 /// 'undefined'.
-extension type QueryDocumentSnapshot._(JSObject _) implements JSObject {
+extension type QueryDocumentSnapshot._(JSObject _) implements DocumentSnapshot {
   /// The time the document was created.
   external Timestamp get createTime;
 
@@ -1617,7 +1619,7 @@ extension type DocumentChange._(JSObject _) implements JSObject {
 /// document references, and querying for documents (using the methods
 /// inherited from `Query`).
 
-extension type CollectionReference._(JSObject _) implements JSObject {
+extension type CollectionReference._(JSObject _) implements Query {
   /// The identifier of the collection.
   external String get it;
 
@@ -1678,7 +1680,7 @@ extension type CollectionReference._(JSObject _) implements JSObject {
 /// A `CollectionGroup` refers to all documents that are contained in a
 /// collection or subcollection with a specific collection ID.
 
-extension type CollectionGroup._(JSObject _) implements JSObject {
+extension type CollectionGroup._(JSObject _) implements Query {
   /// Partitions a query by returning partition cursors that can be used to run
   /// the query in parallel. The returned cursors are split points that can be
   /// used as starting and end points for individual query invocations.
