@@ -6,13 +6,13 @@ import 'package:node_preamble/preamble.dart';
 ///
 /// A dart file named `src/index.dart` is compiled to `lib/index.js`
 /// which will be used by the Functions runtime
-Future<void> build() async {
+Future<void> build({String optimization = 'O2'}) async {
   final build = await Process.start(
     'dart',
     [
       'compile',
       'js',
-      '-O2',
+      '-$optimization',
       '-o',
       'lib/index.js',
       'src/index.dart',
