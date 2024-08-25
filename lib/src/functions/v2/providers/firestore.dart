@@ -25,7 +25,8 @@ import 'dart:js_interop';
 import 'package:firebase_js_interop/src/functions/v2/core.dart';
 
 /// A CloudEvent that contains a DocumentSnapshot or a Change<DocumentSnapshot>
-extension type FirestoreEvent<T>._(JSObject _) implements CloudEvent<T> {
+extension type FirestoreEvent<T extends JSObject>._(JSObject _)
+    implements CloudEvent<T> {
   /// The location of the Firestore instance
   external String get location;
 
@@ -47,7 +48,7 @@ extension type FirestoreEvent<T>._(JSObject _) implements CloudEvent<T> {
 }
 
 /// A FirestoreEvent with auth context
-extension type FirestoreAuthEvent<T>._(JSObject _)
+extension type FirestoreAuthEvent<T extends JSObject>._(JSObject _)
     implements FirestoreEvent<T> {
   /// The type of principal that triggered the event
   external String get authType;

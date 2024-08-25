@@ -19,6 +19,7 @@
 
 import 'dart:js_interop';
 
+import 'package:firebase_js_interop/node.dart';
 import 'package:firebase_js_interop/typescript.dart';
 
 /// Converter used by `withConverter()` to transform user objects of type
@@ -169,7 +170,7 @@ extension type TransactionOptions._(JSObject _) implements JSObject {
 
   /// Constructor
   external factory TransactionOptions({
-    bool readOnly = false,
+    bool readOnly,
     Timestamp? readTime,
     int? maxAttempts,
   });
@@ -2011,8 +2012,7 @@ extension type Timestamp._(JSObject _) implements JSObject {
   /// @param date The date to initialize the `Timestamp` from.
   /// @return A new `Timestamp` representing the same point in time as the
   /// given date.
-  // TODO: Is DateTime compatible with JS Date?
-  external static Timestamp fromDate(DateTime date);
+  external static Timestamp fromDate(Date date);
 
   /// Creates a new timestamp from the given number of milliseconds.
   ///
@@ -2044,8 +2044,7 @@ extension type Timestamp._(JSObject _) implements JSObject {
   ///
   /// @return JavaScript `Date` object representing the same point in time as
   /// this `Timestamp`, with millisecond precision.
-  // TODO: Is DateTime compatible with JS Date?
-  external DateTime toDate();
+  external Date toDate();
 
   /// Returns the number of milliseconds since Unix epoch 1970-01-01T00:00:00Z.
   ///
@@ -2305,7 +2304,7 @@ extension type ExplainMetrics._(JSObject _) implements JSObject {
 /// ExplainResults contains information about planning, execution, and results
 /// of a query.
 
-extension type ExplainResults<T>._(JSObject _) implements JSObject {
+extension type ExplainResults<T extends JSObject>._(JSObject _) implements JSObject {
   /// Information about planning and execution of the query.
   external ExplainMetrics get metrics;
 

@@ -16,6 +16,8 @@
 
 import 'dart:js_interop';
 
+import 'package:firebase_js_interop/src/admin/messaging/index.dart';
+
 export 'messaging.dart' show Messaging;
 export 'messaging_api.dart'
     show
