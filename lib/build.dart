@@ -28,23 +28,23 @@ enum OptimizationLevel {
   String toString() => name;
 }
 
+const _beginPreamble = '/// BEGIN PREAMBLE';
+const _endPreamble = '/// END PREAMBLE';
+const _beginDart = '/// BEGIN DART';
+const _endDart = '/// END DART';
+
 /// A pre-built function to convert dart code into Functions-compatible JS
 ///
 /// A dart file named `src/index.dart` is compiled to `lib/index.js`
 /// which will be used by the Functions runtime
 Future<void> build({
   OptimizationLevel optimization = OptimizationLevel.O2,
+  String output = 'lib/index.js',
+  String input = 'src/index.dart',
 }) async {
   final build = await Process.start(
     'dart',
-    [
-      'compile',
-      'js',
-      '-$optimization',
-      '-o',
-      'lib/index.js',
-      'src/index.dart',
-    ],
+    ['compile', 'js', '-$optimization', '-o', output, input],
     mode: ProcessStartMode.inheritStdio,
   );
 
@@ -56,18 +56,13 @@ Future<void> build({
   final preamble =
       getPreamble(minified: optimization.index >= OptimizationLevel.O2.index);
 
-  final out = File('lib/index.js');
+  final out = File(output);
   final content = out.readAsStringSync();
-  if (content.contains('/// BEGIN PREAMBLE')) {
-    // Build did not change
+  if (content.contains(_beginPreamble)) {
+    print('Preamble already present. Skipping preamble injection.');
     return;
   }
-  out.writeAsStringSync('''
-/// BEGIN PREAMBLE
-$preamble
-/// END PREAMBLE
-
-/// BEGIN DART
-$content
-/// END DART''');
+  out.writeAsStringSync(
+    '$_beginPreamble\n$preamble\n$_endPreamble\n\n$_beginDart\n$content\n$_endDart\n',
+  );
 }
