@@ -22,10 +22,12 @@
 
 import 'dart:js_interop';
 
+export 'package:firebase_js_interop/src/functions/common/providers/https.dart';
+
 /// Options that can be set on an onRequest HTTPS function.
 extension type HttpsOptions._(JSObject _) implements JSObject {
   /// If true, do not deploy or emulate this function.
-  external bool? get omit;
+  external JSAny? get omit;
 
   /// HTTP functions can override global options and can specify multiple regions to deploy to.
   external JSAny? get region;
@@ -101,7 +103,7 @@ extension type HttpsOptions._(JSObject _) implements JSObject {
   external JSAny? get invoker;
 
   /// Constructor
-  external factory HttpsOptions({
+  external HttpsOptions({
     JSAny? omit,
     JSAny? region,
     JSAny? cors,
@@ -121,6 +123,59 @@ extension type HttpsOptions._(JSObject _) implements JSObject {
   });
 }
 
+/// Options that can be set on a callable HTTPS function.
+extension type CallableOptions._(JSObject _) implements HttpsOptions {
+  /// Determines whether Firebase AppCheck is enforced.
+  /// When true, requests with invalid tokens autorespond with a 401
+  /// (Unauthorized) error.
+  /// When false, requests with invalid tokens set event.app to undefiend.
+  external bool? get enforceAppCheck;
+
+  /// Determines whether Firebase App Check token is consumed on request. Defaults to false.
+  ///
+  /// @remarks
+  /// Set this to true to enable the App Check replay protection feature by consuming the App Check token on callable
+  /// request. Tokens that are found to be already consumed will have request.app.alreadyConsumed property set true.
+  ///
+  ///
+  /// Tokens are only considered to be consumed if it is sent to the App Check service by setting this option to true.
+  /// Other uses of the token do not consume it.
+  ///
+  /// This replay protection feature requires an additional network call to the App Check backend and forces the clients
+  /// to obtain a fresh attestation from the chosen attestation providers. This can therefore negatively impact
+  /// performance and can potentially deplete your attestation providers' quotas faster. Use this feature only for
+  /// protecting low volume, security critical, or expensive operations.
+  ///
+  /// This option does not affect the enforceAppCheck option. Setting the latter to true will cause the callable function
+  /// to automatically respond with a 401 Unauthorized status code when request includes an invalid App Check token.
+  /// When request includes valid but consumed App Check tokens, requests will not be automatically rejected. Instead,
+  /// the request.app.alreadyConsumed property will be set to true and pass the execution to the handler code for making
+  /// further decisions, such as requiring additional security checks or rejecting the request.
+  external bool? get consumeAppCheckToken;
+
+  /// Constructor
+  external CallableOptions({
+    JSAny? omit,
+    JSAny? region,
+    JSAny? cors,
+    JSAny? memory,
+    JSAny? timeoutSeconds,
+    JSAny? minInstances,
+    JSAny? maxInstances,
+    JSAny? concurrency,
+    JSAny? cpu,
+    JSAny? vpcConnector,
+    JSAny? vpcConnectorEgressSettings,
+    JSAny? serviceAccount,
+    JSAny? ingressSettings,
+    JSAny? labels,
+    JSAny? secrets,
+    JSAny? invoker,
+    JSAny? enforceAppCheck,
+    JSAny? consumeAppCheckToken,
+  });
+}
+
 /// The Firebase Functions HTTPS namespace
 extension type FirebaseFunctionsHttps._(JSObject _) implements JSObject {
   /// Handles HTTPS requests.
@@ -129,7 +184,17 @@ extension type FirebaseFunctionsHttps._(JSObject _) implements JSObject {
   /// @returns A function that you can export and deploy.
   external JSFunction onRequest(
     JSObject optsOrHandler, [
-    // (Request req, Response res) {}
+    // (Request request, express.Response response) {}
+    JSFunction handler,
+  ]);
+
+  /// Declares a callable method for clients to call using a Firebase SDK.
+  /// @param opts - Options to set on this function.
+  /// @param handler - A function that takes a {@link https.CallableRequest}.
+  /// @returns A function that you can export and deploy.
+  external JSFunction onCall(
+    JSObject optsOrHandler, [
+    // (CallableRequest request) {}
     JSFunction handler,
   ]);
 }

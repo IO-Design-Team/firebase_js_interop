@@ -1,8 +1,10 @@
 import 'package:firebase_js_interop/functions.dart';
 import 'package:firebase_js_interop/node.dart';
 
+export 'src/functions/common/options.dart';
 export 'src/functions/v2/providers/firestore.dart';
 export 'src/functions/v2/providers/https.dart';
+export 'src/functions/v2/core.dart';
 
 /// Access to Firebase Functions components
 abstract final class FirebaseFunctions {
