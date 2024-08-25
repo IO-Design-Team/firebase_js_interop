@@ -7,6 +7,7 @@ environment:
 
 dependencies:
   node_preamble: ^2.0.2
+  json_annotation: ^4.9.0
 
 dev_dependencies:
   test: ^1.24.0
