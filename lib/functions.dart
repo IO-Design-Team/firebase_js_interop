@@ -4,6 +4,7 @@ import 'package:firebase_js_interop/node.dart';
 export 'src/functions/common/options.dart';
 export 'src/functions/v2/providers/firestore.dart';
 export 'src/functions/v2/providers/https.dart';
+export 'src/functions/v2/providers/identity.dart';
 export 'src/functions/v2/core.dart';
 
 /// Access to Firebase Functions components
@@ -17,4 +18,8 @@ abstract final class FirebaseFunctions {
   /// Access to the Firebase Functions Firestore methods
   static FirebaseFunctionsFirestore get firestore =>
       require('firebase-functions/v2/firestore') as FirebaseFunctionsFirestore;
+
+  /// Access to the Firebase Functions Identity methods
+  static FirebaseFunctionsIdentity get identity =>
+      require('firebase-functions/v2/identity') as FirebaseFunctionsIdentity;
 }

@@ -4,7 +4,8 @@ import 'dart:js_interop';
 /// For more information, see https://github.com/cloudevents/spec.
 /// @typeParam T - The type of the event data.
 /// @beta
-extension type CloudEvent<T extends JSObject>._(JSObject _) implements JSObject {
+extension type CloudEvent<T extends JSObject>._(JSObject _)
+    implements JSObject {
   /// Version of the CloudEvents spec for this event.
   external String get specversion;
 

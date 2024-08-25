@@ -2098,6 +2098,7 @@ extension type BundleBuilder._(JSObject _) implements JSObject {
 abstract final class GrpcStatus {
   /// ok
   static const OK = 0;
+
   /// cancelled
   static const CANCELLED = 1;
 
@@ -2304,7 +2305,8 @@ extension type ExplainMetrics._(JSObject _) implements JSObject {
 /// ExplainResults contains information about planning, execution, and results
 /// of a query.
 
-extension type ExplainResults<T extends JSObject>._(JSObject _) implements JSObject {
+extension type ExplainResults<T extends JSObject>._(JSObject _)
+    implements JSObject {
   /// Information about planning and execution of the query.
   external ExplainMetrics get metrics;
 

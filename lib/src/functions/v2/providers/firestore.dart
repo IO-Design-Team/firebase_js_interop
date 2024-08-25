@@ -77,7 +77,7 @@ extension type FirebaseFunctionsFirestore._(JSObject _) implements JSObject {
   /// @param handler - Event handler which is run every time a Firestore create, update, or delete occurs.
   external JSFunction onDocumentWritten(
     JSAny documentOrOpts,
-    // (FirestoreEvent<DocumentSnapshot> event) {}
+    // (FirestoreEvent<DocumentSnapshot> event) => FutureOr<void>
     JSFunction handler,
   );
 
@@ -88,7 +88,7 @@ extension type FirebaseFunctionsFirestore._(JSObject _) implements JSObject {
   /// @param handler - Event handler which is run every time a Firestore create, update, or delete occurs.
   external JSFunction onDocumentWrittenWithAuthContext(
     JSAny documentOrOpts,
-    // (FirestoreAuthEvent<DocumentSnapshot> event) {}
+    // (FirestoreAuthEvent<DocumentSnapshot> event) => FutureOr<void>
     JSFunction handler,
   );
 
@@ -98,7 +98,7 @@ extension type FirebaseFunctionsFirestore._(JSObject _) implements JSObject {
   /// @param handler - Event handler which is run every time a Firestore create occurs.
   external JSFunction onDocumentCreated(
     JSAny documentOrOpts,
-    // (FirestoreEvent<DocumentSnapshot> event) {}
+    // (FirestoreEvent<DocumentSnapshot> event) => FutureOr<void>
     JSFunction handler,
   );
 
@@ -108,7 +108,7 @@ extension type FirebaseFunctionsFirestore._(JSObject _) implements JSObject {
   /// @param handler - Event handler which is run every time a Firestore create occurs.
   external JSFunction onDocumentCreatedWithAuthContext(
     JSAny documentOrOpts,
-    // (FirestoreAuthEvent<QueryDocumentSnapshot> event) {}
+    // (FirestoreAuthEvent<QueryDocumentSnapshot> event) => FutureOr<void>
     JSFunction handler,
   );
 
@@ -127,7 +127,7 @@ extension type FirebaseFunctionsFirestore._(JSObject _) implements JSObject {
   /// @param handler - Event handler which is run every time a Firestore update occurs.
   external JSFunction onDocumentUpdatedWithAuthContext(
     JSAny documentOrOpts,
-    // (FirestoreAuthEvent<QueryDocumentSnapshot> event) {}
+    // (FirestoreAuthEvent<QueryDocumentSnapshot> event) => FutureOr<void>
     JSFunction handler,
   );
 
@@ -137,7 +137,7 @@ extension type FirebaseFunctionsFirestore._(JSObject _) implements JSObject {
   /// @param handler - Event handler which is run every time a Firestore delete occurs.
   external JSFunction onDocumentDeleted(
     JSAny documentOrOpts,
-    // (FirestoreAuthEvent<QueryDocumentSnapshot> event) {}
+    // (FirestoreAuthEvent<QueryDocumentSnapshot> event) => FutureOr<void>
     JSFunction handler,
   );
 
@@ -147,7 +147,7 @@ extension type FirebaseFunctionsFirestore._(JSObject _) implements JSObject {
   /// @param handler - Event handler which is run every time a Firestore delete occurs.
   external JSFunction onDocumentDeletedWithAuthContext(
     JSAny documentOrOpts,
-    // (FirestoreAuthEvent<QueryDocumentSnapshot> event) {}
+    // (FirestoreAuthEvent<QueryDocumentSnapshot> event) => FutureOr<void>
     JSFunction handler,
   );
 }

@@ -184,7 +184,7 @@ extension type FirebaseFunctionsHttps._(JSObject _) implements JSObject {
   /// @returns A function that you can export and deploy.
   external JSFunction onRequest(
     JSObject optsOrHandler, [
-    // (Request request, express.Response response) {}
+    // (Request request, express.Response response) => FutureOr<void>
     JSFunction handler,
   ]);
 
@@ -194,7 +194,7 @@ extension type FirebaseFunctionsHttps._(JSObject _) implements JSObject {
   /// @returns A function that you can export and deploy.
   external JSFunction onCall(
     JSObject optsOrHandler, [
-    // (CallableRequest request) {}
+    // (CallableRequest request) => FutureOr<dynamic>
     JSFunction handler,
   ]);
 }

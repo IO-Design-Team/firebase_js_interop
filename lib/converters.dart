@@ -26,3 +26,5 @@ class FirestoreDateTimeConverter extends JsonConverter<DateTime, Timestamp> {
   Timestamp toJson(DateTime object) =>
       Timestamp.fromDate(Date.fromDateTime(object));
 }
+
+// TODO: Converters for GeoPoint and Blob
