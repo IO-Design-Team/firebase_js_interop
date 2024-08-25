@@ -19,7 +19,7 @@
 
 import 'dart:js_interop';
 
-import 'package:firebase_js_interop/node.dart';
+import 'package:firebase_js_interop/js.dart';
 import 'package:firebase_js_interop/typescript.dart';
 
 /// Converter used by `withConverter()` to transform user objects of type
