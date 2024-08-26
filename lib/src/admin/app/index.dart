@@ -30,5 +30,5 @@ export '../utils/error.dart' show FirebaseAppError, AppErrorCodes;
 extension type FirebaseAdminApp._(JSObject _) implements JSObject {
   /// SDK_VERSION
   @JS('SDK_VERSION')
-  external static String get sdkVersion;
+  external String get sdkVersion;
 }

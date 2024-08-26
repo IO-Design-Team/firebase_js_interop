@@ -9,12 +9,13 @@ extension type Date._(JSObject _) implements JSObject {
   /// Constructor
   external Date(JSAny value);
 
-  /// Returns the milliseconds (0 – 999) in the specified date according to local time.
-  external int getMilliseconds();
+  /// Returns the numeric value of the specified date as the number of
+  /// milliseconds since January 1, 1970 00:00:00 UTC. (Negative values are
+  /// returned for prior times.)
+  external int getTime();
 
   /// Create a Dart DateTime object from a JS Date object
-  DateTime toDateTime() =>
-      DateTime.fromMillisecondsSinceEpoch(getMilliseconds());
+  DateTime toDateTime() => DateTime.fromMillisecondsSinceEpoch(getTime());
 }
 
 /// Create a [JSPromise] from a Dart function that returns a [Future]

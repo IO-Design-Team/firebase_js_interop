@@ -18,8 +18,10 @@
  */
 
 import 'dart:js_interop';
+import 'dart:js_interop_unsafe';
 
 import 'package:firebase_js_interop/js.dart';
+import 'package:firebase_js_interop/node.dart';
 import 'package:firebase_js_interop/typescript.dart';
 
 /// Converter used by `withConverter()` to transform user objects of type
@@ -1991,6 +1993,29 @@ extension type FieldPath._(JSObject _) implements JSObject {
   external bool isEqual(FieldPath other);
 }
 
+/// Static methods on [Timestamp]
+extension type TimestampStatic._(JSObject _) implements JSObject {
+  /// Creates a new timestamp with the current date, with millisecond precision.
+  ///
+  /// @return A new `Timestamp` representing the current date.
+  external Timestamp now();
+
+  /// Creates a new timestamp from the given date.
+  ///
+  /// @param date The date to initialize the `Timestamp` from.
+  /// @return A new `Timestamp` representing the same point in time as the
+  /// given date.
+  external Timestamp fromDate(Date date);
+
+  /// Creates a new timestamp from the given number of milliseconds.
+  ///
+  /// @param milliseconds Number of milliseconds since Unix epoch
+  /// 1970-01-01T00:00:00Z.
+  /// @return A new `Timestamp` representing the same point in time as the
+  /// given number of milliseconds.
+  external Timestamp fromMillis(int milliseconds);
+}
+
 /// A Timestamp represents a point in time independent of any time zone or
 /// calendar, represented as seconds and fractions of seconds at nanosecond
 /// resolution in UTC Epoch time. It is encoded using the Proleptic Gregorian
@@ -2000,27 +2025,10 @@ extension type FieldPath._(JSObject _) implements JSObject {
 /// is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z.
 ///
 /// @see https://github.com/google/protobuf/blob/master/src/google/protobuf/timestamp.proto
-
 extension type Timestamp._(JSObject _) implements JSObject {
-  /// Creates a new timestamp with the current date, with millisecond precision.
-  ///
-  /// @return A new `Timestamp` representing the current date.
-  external static Timestamp now();
+  /// Access to static methods on [Timestamp]
+  static TimestampStatic get static => require('@google-cloud/firestore')['Timestamp'] as TimestampStatic;
 
-  /// Creates a new timestamp from the given date.
-  ///
-  /// @param date The date to initialize the `Timestamp` from.
-  /// @return A new `Timestamp` representing the same point in time as the
-  /// given date.
-  external static Timestamp fromDate(Date date);
-
-  /// Creates a new timestamp from the given number of milliseconds.
-  ///
-  /// @param milliseconds Number of milliseconds since Unix epoch
-  /// 1970-01-01T00:00:00Z.
-  /// @return A new `Timestamp` representing the same point in time as the
-  /// given number of milliseconds.
-  external static Timestamp fromMillis(int milliseconds);
 
   /// Creates a new timestamp.
   ///
