@@ -1,4 +1,4 @@
-package com.iodesignteam.fji_example
+package com.example.fji_example
 
 import io.flutter.embedding.android.FlutterActivity
 
