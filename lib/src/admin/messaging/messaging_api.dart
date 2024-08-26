@@ -461,7 +461,6 @@ extension type ApnsFcmOptions._(JSObject _) implements JSObject {
 
 /// Represents the Android-specific options that can be included in an
 /// {@link Message}.
-
 extension type AndroidConfig._(JSObject _) implements JSObject {
   /// Collapse key for the message. Collapse key serves as an identifier for a
   /// group of messages that can be collapsed, so that only the last message gets

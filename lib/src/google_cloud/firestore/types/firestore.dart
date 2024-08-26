@@ -527,7 +527,6 @@ extension type Transaction._(JSObject _) implements JSObject {
 /// in parallel. Writes to the same document will be executed sequentially.
 ///
 /// @class
-
 extension type BulkWriter._(JSObject _) implements JSObject {
   /// Create a document with the provided data. This single operation will fail
   /// if a document exists at its location.
@@ -702,7 +701,6 @@ extension type BulkWriter._(JSObject _) implements JSObject {
 }
 
 /// An options object to configure throttling on BulkWriter.
-
 extension type BulkWriterOptions._(JSObject _) implements JSObject {
   /// Whether to disable or configure throttling. By default, throttling is
   /// enabled. This field can be set to either a boolean or a config
@@ -726,7 +724,6 @@ extension type BulkWriterOptions._(JSObject _) implements JSObject {
 }
 
 /// The error thrown when a BulkWriter operation fails.
-
 extension type BulkWriterError._(JSObject _) implements Error {
   /// The status code of the error.
   ///
@@ -755,7 +752,6 @@ extension type BulkWriterError._(JSObject _) implements Error {
 ///
 /// Unlike transactions, write batches are persisted offline and therefore are
 /// preferable when you don't need to condition your writes on read data.
-
 extension type WriteBatch._(JSObject _) implements JSObject {
   /// Create the document referred to by the provided `DocumentReference`. The
   /// operation will fail the batch if a document exists at the specified
@@ -856,7 +852,6 @@ extension type WriteBatch._(JSObject _) implements JSObject {
 /// `delete()` calls in `DocumentReference`, `WriteBatch`, and `Transaction`.
 /// Using Preconditions, these calls can be restricted to only apply to
 /// documents that match the specified restrictions.
-
 extension type Precondition._(JSObject _) implements JSObject {
   /// If set, the last update time to enforce.
   external Timestamp? get lastUpdateTime;
@@ -879,7 +874,6 @@ extension type Precondition._(JSObject _) implements JSObject {
 /// the specified field paths. Any field path that is not specified is ignored
 /// and remains untouched. If your input sets any field to an empty map, all
 /// nested fields are overwritten.
-
 extension type SortOptions._(JSObject _) implements JSObject {
   /// merge
   external bool? get merge;
@@ -905,7 +899,6 @@ extension type SortOptions._(JSObject _) implements JSObject {
 /// the specified field paths. Any field path that is not specified is ignored
 /// and remains untouched. If your input sets any field to an empty map, all
 /// nested fields are overwritten.
-
 extension type SetOptions._(JSObject _) implements JSObject {
   /// merge
   external bool? get merge;
@@ -920,7 +913,6 @@ extension type SetOptions._(JSObject _) implements JSObject {
 /// An options object that can be used to configure the behavior of `getAll()`
 /// calls. By providing a `fieldMask`, these calls can be configured to only
 /// return a subset of fields.
-
 extension type ReadOptions._(JSObject _) implements JSObject {
   /// Specifies the set of fields to return and reduces the amount of data
   /// transmitted by the backend.
@@ -936,7 +928,6 @@ extension type ReadOptions._(JSObject _) implements JSObject {
 
 /// A WriteResult wraps the write time set by the Firestore servers on `sets()`,
 /// `updates()`, and `creates()`.
-
 extension type WriteResult._(JSObject _) implements JSObject {
   /// The write time as set by the Firestore servers.
   external Timestamp get writeTime;
@@ -952,7 +943,6 @@ extension type WriteResult._(JSObject _) implements JSObject {
 /// and can be used to write, read, or listen to the location. The document at
 /// the referenced location may or may not exist. A `DocumentReference` can
 /// also be used to create a `CollectionReference` to a subcollection.
-
 extension type DocumentReference._(JSObject _) implements JSObject {
   /// The identifier of the document within its collection.
   external String get id;
@@ -1100,7 +1090,6 @@ extension type DocumentReference._(JSObject _) implements JSObject {
 /// For a `DocumentSnapshot` that points to a non-existing document, any data
 /// access will return 'undefined'. You can use the `exists` property to
 /// explicitly verify a document's existence.
-
 extension type DocumentSnapshot._(JSObject _) implements JSObject {
   /// True if the document exists.
   external bool get exists;
@@ -1508,7 +1497,6 @@ extension type Query._(JSObject _) implements JSObject {
 /// array via the `docs` property or enumerated using the `forEach` method. The
 /// number of documents can be determined via the `empty` and `size`
 /// properties.
-
 extension type QuerySnapshot._(JSObject _) implements JSObject {
   /// The query on which you called `get` or `onSnapshot` in order to get this
   /// `QuerySnapshot`.
@@ -1551,7 +1539,6 @@ extension type QuerySnapshot._(JSObject _) implements JSObject {
 /// array via the `docs` property or enumerated using the `forEach` method. The
 /// number of documents can be determined via the `empty` and `size`
 /// properties.
-
 extension type VectorQuerySnapshot._(JSObject _) implements JSObject {
   /// The query on which you called `get` in order to get this
   /// `VectorQuerySnapshot`.
@@ -1591,7 +1578,6 @@ extension type VectorQuerySnapshot._(JSObject _) implements JSObject {
 
 /// A `DocumentChange` represents a change to the documents matching a query.
 /// It contains the document affected and the type of change that occurred.
-
 extension type DocumentChange._(JSObject _) implements JSObject {
   /// The type of change ('added', 'modified', or 'removed').
   external String get type;
@@ -1621,7 +1607,6 @@ extension type DocumentChange._(JSObject _) implements JSObject {
 /// A `CollectionReference` object can be used for adding documents, getting
 /// document references, and querying for documents (using the methods
 /// inherited from `Query`).
-
 extension type CollectionReference._(JSObject _) implements Query {
   /// The identifier of the collection.
   external String get it;
@@ -1682,7 +1667,6 @@ extension type CollectionReference._(JSObject _) implements Query {
 
 /// A `CollectionGroup` refers to all documents that are contained in a
 /// collection or subcollection with a specific collection ID.
-
 extension type CollectionGroup._(JSObject _) implements Query {
   /// Partitions a query by returning partition cursors that can be used to run
   /// the query in parallel. The returned cursors are split points that can be
@@ -1749,7 +1733,6 @@ extension type CollectionGroup._(JSObject _) implements Query {
 /// the query results. The cursors returned by {@link #startAt} and {@link
 /// #endBefore} can only be used in a query that matches the constraint of query
 /// that produced this partition.
-
 extension type QueryPartition._(JSObject _) implements JSObject {
   /// The cursor that defines the first result for this partition or
   /// `undefined` if this is the first partition.  The cursor value must be
@@ -1777,7 +1760,6 @@ extension type QueryPartition._(JSObject _) implements JSObject {
 }
 
 /// Represents an aggregation that can be performed by Firestore.
-
 extension type AggregateField._(JSObject _) implements JSObject {
   /// A type string to uniquely identify instances of this class.
   external String get type;
@@ -1811,7 +1793,6 @@ extension type AggregateField._(JSObject _) implements JSObject {
 }
 
 /// A query that calculates aggregations over an underlying query.
-
 extension type AggregateQuery._(JSObject _) implements JSObject {
   /// The query whose aggregations will be calculated by this object.
   external Query get query;
@@ -1845,7 +1826,6 @@ extension type AggregateQuery._(JSObject _) implements JSObject {
 }
 
 /// The results of executing an aggregation query.
-
 extension type AggregateQuerySnapshot._(JSObject _) implements JSObject {
   /// The query that was executed to produce this result.
   external AggregateQuery get query;
@@ -1877,7 +1857,6 @@ extension type AggregateQuerySnapshot._(JSObject _) implements JSObject {
 }
 
 /// A query that finds the document whose vector fields are closest to a certain vector.
-
 extension type VectorQuery._(JSObject _) implements JSObject {
   /// The query whose results participants in the distance search.
   external Query get query;
@@ -1901,7 +1880,6 @@ extension type VectorQuery._(JSObject _) implements JSObject {
 }
 
 /// Represent a vector type in Firestore documents.
-
 extension type VectorValue._(JSObject _) implements JSObject {
   /// Returns a copy of the raw number array form of the vector.
   external JSArray<JSNumber> toArray();
@@ -1912,7 +1890,6 @@ extension type VectorValue._(JSObject _) implements JSObject {
 
 /// Sentinel values that can be used when writing document fields with set(),
 /// create() or update().
-
 extension type FieldValue._(JSObject _) implements JSObject {
   /// Returns a sentinel used with set(), create() or update() to include a
   /// server-generated timestamp in the written data.
@@ -1980,7 +1957,6 @@ extension type FieldValue._(JSObject _) implements JSObject {
 /// A FieldPath refers to a field in a document. The path may consist of a
 /// single field name (referring to a top-level field in the document), or a
 /// list of field names (referring to a nested field in the document).
-
 extension type FieldPath._(JSObject _) implements JSObject {
   /// Returns a special sentinel FieldPath to refer to the ID of a document.
   /// It can be used in queries to sort or filter by the document ID.
@@ -2074,7 +2050,6 @@ extension type Timestamp._(JSObject _) implements JSObject {
 }
 
 /// Builds a Firestore data bundle with results from the given document and query snapshots.
-
 extension type BundleBuilder._(JSObject _) implements JSObject {
   /// The ID of this bundle.
   external String get bundleId;
@@ -2161,7 +2136,6 @@ abstract final class GrpcStatus {
 /// `Filters`s are created by invoking {@link Filter#where}, {@link Filter#or},
 /// or {@link Filter#and} and can then be passed to {@link Query#where}
 /// to create a new {@link Query} instance that also contains this `Filter`.
-
 extension type Filter._(JSObject _) implements JSObject {
   /// Creates and returns a new [Filter]{@link Filter}, which can be
   /// applied to [Query.where()]{@link Query#where}, [Filter.or()]{@link Filter#or},
@@ -2272,7 +2246,6 @@ extension type ExplainOptions._(JSObject _) implements JSObject {
 }
 
 /// PlanSummary contains information about the planning stage of a query.
-
 extension type PlanSummary._(JSObject _) implements JSObject {
   /// Information about the indexes that were used to serve the query.
   /// This should be inspected or logged, because the contents are intended to be
@@ -2300,7 +2273,6 @@ extension type ExecutionStats._(JSObject _) implements JSObject {
 }
 
 /// ExplainMetrics contains information about planning and execution of a query.
-
 extension type ExplainMetrics._(JSObject _) implements JSObject {
   /// Information about the query plan.
   external PlanSummary get planSummary;
@@ -2312,7 +2284,6 @@ extension type ExplainMetrics._(JSObject _) implements JSObject {
 
 /// ExplainResults contains information about planning, execution, and results
 /// of a query.
-
 extension type ExplainResults<T extends JSObject>._(JSObject _)
     implements JSObject {
   /// Information about planning and execution of the query.
