@@ -13,28 +13,42 @@ Wrappers and tools for composing Firebase Cloud Functions in the Dart language
 
 ### Admin
 
-| Service            | Status | Comment |
-| ------------------ | ------ | ------- |
-| App                | 🟨     |         |
-| App Check          | 🟥     |         |
-| Auth               | 🟥     |         |
-| Credential         | 🟥     |         |
-| Database           | 🟥     |         |
-| Eventarc           | 🟥     |         |
-| Extensions         | 🟥     |         |
-| Firestore          | 🟨     |         |
-| Functions          | 🟥     |         |
-| Installations      | 🟥     |         |
-| Messaging          | 🟧     |         |
-| Project Management | 🟥     |         |
-| Remote Config      | 🟥     |         |
-| Security Rules     | 🟥     |         |
-| Storage            | 🟥     |         |
+| Service            | Status | Comment              |
+| ------------------ | ------ | -------------------- |
+| App                | 🟩     |                      |
+| App Check          | 🟥     |                      |
+| Auth               | 🟥     |                      |
+| Credential         | 🟥     |                      |
+| Database           | 🟥     |                      |
+| Eventarc           | 🟥     |                      |
+| Extensions         | 🟥     |                      |
+| Firestore          | 🟩     |                      |
+| Functions          | 🟥     |                      |
+| Installations      | 🟥     |                      |
+| Messaging          | 🟧     | Only message sending |
+| Project Management | 🟥     |                      |
+| Remote Config      | 🟥     |                      |
+| Security Rules     | 🟥     |                      |
+| Storage            | 🟥     |                      |
 
 ## Functions
 
-| Service | Status |
-| ------- | ------ |
+| Service        | Status |
+| -------------- | ------ |
+| Alerts         | 🟥     |
+| Database       | 🟥     |
+| Eventarc       | 🟥     |
+| Firestore      | 🟩     |
+| HTTPS          | 🟩     |
+| Identity       | 🟩     |
+| PubSub         | 🟥     |
+| Remote Config  | 🟥     |
+| Scheduler      | 🟥     |
+| Storage        | 🟥     |
+| Tasks          | 🟥     |
+| Test Lab       | 🟥     |
+| Global Options | 🟥     |
+| onInit         | 🟥     |
 
 ## Getting started
 

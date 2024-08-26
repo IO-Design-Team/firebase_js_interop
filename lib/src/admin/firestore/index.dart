@@ -17,9 +17,12 @@
 
 import 'dart:js_interop';
 
-export 'firestore.dart';
-
+import 'package:firebase_js_interop/src/admin/app/index.dart';
 import 'package:firebase_js_interop/src/admin/firestore/firestore.dart';
+import 'package:firebase_js_interop/src/admin/firestore/firestore_internal.dart';
+
+export 'firestore.dart';
+export 'firestore_internal.dart';
 
 /// Cloud Firestore.
 extension type FirebaseAdminFirestore._(JSObject _) implements JSObject {
@@ -27,5 +30,28 @@ extension type FirebaseAdminFirestore._(JSObject _) implements JSObject {
   external Firestore getFirestore([
     JSAny? appOrDatabaseId,
     String? optionalDatabaseId,
+  ]);
+
+  /// Gets the named {@link https://googleapis.dev/nodejs/firestore/latest/Firestore.html | Firestore}
+  /// service for the given app, passing extra parameters to its constructor.
+  ///
+  /// @example
+  /// ```javascript
+  /// // Get the Firestore service for a specific app, require HTTP/1.1 REST transport
+  /// const otherFirestore = initializeFirestore(app, {preferRest: true}, 'otherDb');
+  /// ```
+  ///
+  /// @param app - which `Firestore` service to return.
+  ///
+  /// @param settings - Settings object to be passed to the constructor.
+  ///
+  /// @param databaseId - name of database to return.
+  ///
+  /// @returns The named `Firestore` service associated with the provided app and settings.
+  /// @beta
+  external Firestore initializeFirestore(
+    App app, [
+    FirestoreSettings settings,
+    String databaseId,
   ]);
 }
