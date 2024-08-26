@@ -19,6 +19,9 @@ void main() async {
   await auth.useAuthEmulator('localhost', 9099);
   firestore.useFirestoreEmulator('localhost', 8080);
 
+  // Start fresh every time for the demo
+  await auth.signOut();
+
   // This will call the `beforeUserCreated` function
   await auth.signInAnonymously();
 

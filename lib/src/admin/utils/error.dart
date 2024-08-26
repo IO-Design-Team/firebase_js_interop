@@ -16,7 +16,9 @@
  */
 
 import 'dart:js_interop';
+import 'dart:js_interop_unsafe';
 
+import 'package:firebase_js_interop/node.dart';
 import 'package:firebase_js_interop/src/admin/app/index.dart' as app
     show FirebaseError;
 
@@ -47,49 +49,56 @@ extension type PrefixedFirebaseError._(JSObject _) implements FirebaseError {
 extension type FirebaseAppError._(JSObject _)
     implements PrefixedFirebaseError {}
 
-/// App client error codes and their default messages.
-extension type AppErrorCodes._(JSObject _) implements FirebaseError {
+/// Static members on [AppErrorCodes]
+extension type AppErrorCodesStatic._(JSObject _) implements FirebaseError {
   /// APP_DELETED
   @JS('APP_DELETED')
-  external static String get appDeleted;
+  external String get appDeleted;
 
   /// DUPLICATE_APP
   @JS('DUPLICATE_APP')
-  external static String get duplicateApp;
+  external String get duplicateApp;
 
   /// INVALID_ARGUMENT
   @JS('INVALID_ARGUMENT')
-  external static String get invalidArgument;
+  external String get invalidArgument;
 
   /// INTERNAL_ERROR
   @JS('INTERNAL_ERROR')
-  external static String get internalError;
+  external String get internalError;
 
   /// INVALID_APP_NAME
   @JS('INVALID_APP_NAME')
-  external static String get invalidAppName;
+  external String get invalidAppName;
 
   /// INVALID_APP_OPTIONS
   @JS('INVALID_APP_OPTIONS')
-  external static String get invalidAppOptions;
+  external String get invalidAppOptions;
 
   /// INVALID_CREDENTIAL
   @JS('INVALID_CREDENTIAL')
-  external static String get invalidCredential;
+  external String get invalidCredential;
 
   /// NETWORK_ERROR
   @JS('NETWORK_ERROR')
-  external static String get networkError;
+  external String get networkError;
 
   /// NETWORK_TIMEOUT
   @JS('NETWORK_TIMEOUT')
-  external static String get networkTimeout;
+  external String get networkTimeout;
 
   /// NO_APP
   @JS('NO_APP')
-  external static String get noApp;
+  external String get noApp;
 
   /// UNABLE_TO_PARSE_RESPONSE
   @JS('UNABLE_TO_PARSE_RESPONSE')
-  external static String get unableToParseResponse;
+  external String get unableToParseResponse;
+}
+
+/// App client error codes and their default messages.
+extension type AppErrorCodes._(JSObject _) implements FirebaseError {
+  static AppErrorCodesStatic get static =>
+      require('firebase-admin/utils/error')['AppErrorCodes']
+          as AppErrorCodesStatic;
 }
