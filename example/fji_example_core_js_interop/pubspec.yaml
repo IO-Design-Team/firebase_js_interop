@@ -1,4 +1,5 @@
 name: fji_example_core_js_interop
+publish_to: none
 
 environment:
   sdk: ^3.0.0
