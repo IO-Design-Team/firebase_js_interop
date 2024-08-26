@@ -218,9 +218,11 @@ void main() {
 
 The compiled JS will also work in the Firebase emulators
 
+## Additional information
+
+See [firebase_rules](https://pub.dev/packages/firebase_rules) for writing Firebase security rules in Dart.
 
 ## Contributing
-
 
 There are many unimplemented features. Please feel free to contribute if any necessary components are missing.
 

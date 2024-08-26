@@ -1,7 +1,7 @@
 name: firebase_js_interop
 description: Wrappers and tools for composing Firebase Cloud Functions in the Dart language
 homepage: https://github.com/IO-Design-Team/firebase_js_interop
-version: 0.0.2
+version: 0.0.3
 
 environment:
   sdk: ^3.3.0
