@@ -1,0 +1,14 @@
+name: acadia_firebase_functions
+publish_to: none
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  fji_example_core_js_interop:
+    path: ../../fji_example_core_js_interop
+  firebase_js_interop:
+    path: ../../../
+
+dev_dependencies:
+  rexios_lints: ^8.0.0

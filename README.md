@@ -50,6 +50,12 @@ Wrappers and tools for composing Firebase Cloud Functions in the Dart language
 | Global Options | 🟥     |
 | onInit         | 🟥     |
 
+## Future
+
+Interop with the following packages is planned, but not yet implemented:
+- [rules-unit-testing](https://github.com/firebase/firebase-js-sdk/tree/main/packages/rules-unit-testing)
+- [firebase-functions-test](https://github.com/firebase/firebase-functions-test)
+
 ## Getting started
 
 TODO: List prerequisites and provide or point to information on how to
