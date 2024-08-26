@@ -12,7 +12,12 @@
         ".git",
         "firebase-debug.log",
         "firebase-debug.*.log",
-        "*.local"
+        "*.local",
+        "pubspec.*",
+        "src",
+        "tool",
+        "analysis_options.yaml",
+        ".dart_tool"
       ]
     }
   ],
