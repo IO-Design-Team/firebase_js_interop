@@ -21,6 +21,7 @@
 import 'dart:js_interop';
 
 import 'package:firebase_js_interop/src/admin/app/credential.dart';
+import 'package:firebase_js_interop/node.dart';
 
 /// Available options to pass to {@link firebase-admin.app#initializeApp}.
 extension type AppOptions._(JSObject _) implements JSObject {
@@ -68,8 +69,7 @@ extension type AppOptions._(JSObject _) implements JSObject {
   /// the backend servers, so they do not use this HTTP Agent. `Credential`
   /// instances also do not use this HTTP Agent, but instead support
   /// specifying an HTTP Agent in the corresponding factory methods.
-  // TODO: Implement this?
-  // external Agent? get httpAgent;
+  external Agent? get httpAgent;
 
   /// Constructor
   external factory AppOptions({
@@ -79,7 +79,7 @@ extension type AppOptions._(JSObject _) implements JSObject {
     String? serviceAccountId,
     String? storageBucket,
     String? projectId,
-    // Agent? httpAgent,
+    Agent? httpAgent,
   });
 }
 

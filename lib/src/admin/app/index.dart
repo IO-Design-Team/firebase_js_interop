@@ -15,10 +15,20 @@
  * limitations under the License.
  */
 
+import 'dart:js_interop';
+
 export 'core.dart' show App, AppOptions, FirebaseArrayIndexError, FirebaseError;
-export 'lifecycle.dart' show FirebaseAdminApp;
+export 'lifecycle.dart';
 
 export 'credential.dart'
     show Credential, ServiceAccount, GoogleOAuthAccessToken;
+export 'credential_factory.dart';
 
-// TODO: The rest of them
+export '../utils/error.dart' show FirebaseAppError, AppErrorCodes;
+
+/// Firebase App and SDK initialization.
+extension type FirebaseAdminApp._(JSObject _) implements JSObject {
+  /// SDK_VERSION
+  @JS('SDK_VERSION')
+  external static String get sdkVersion;
+}

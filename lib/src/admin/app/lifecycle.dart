@@ -17,10 +17,10 @@
 
 import 'dart:js_interop';
 
-import 'package:firebase_js_interop/src/admin/app/core.dart';
+import 'package:firebase_js_interop/src/admin/app/index.dart';
 
-/// Access to the Firebase Admin App lifecycle methods
-extension type FirebaseAdminApp._(JSObject _) implements JSObject {
+/// Access to Firebase Admin App Lifecycle methods
+extension FirebaseAdminAppLifecycle on FirebaseAdminApp {
   /// Initializes and returns a Firebase App instance.
   external App initializeApp([AppOptions? options, String appName]);
 

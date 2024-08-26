@@ -46,7 +46,7 @@ export 'messaging_api.dart'
         WebpushFcmOptions,
         WebpushNotification;
 
-/// Access to the Firebase Admin Messaging methods
+/// Firebase Cloud Messaging (FCM).
 extension type FirebaseAdminMessaging._(JSObject _) implements JSObject {
   /// Gets the {@link Messaging} service for the default app or a given app.
   ///
