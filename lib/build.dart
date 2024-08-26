@@ -37,7 +37,7 @@ const _endDart = '/// END DART';
 ///
 /// A dart file named `src/index.dart` is compiled to `lib/index.js`
 /// which will be used by the Functions runtime
-Future<void> build({
+Future<void> buildCloudFunctions({
   OptimizationLevel optimization = OptimizationLevel.O2,
   String output = 'lib/index.js',
   String input = 'src/index.dart',
