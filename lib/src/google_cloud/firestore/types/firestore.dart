@@ -18,10 +18,9 @@
  */
 
 import 'dart:js_interop';
-import 'dart:js_interop_unsafe';
 
 import 'package:firebase_js_interop/js.dart';
-import 'package:firebase_js_interop/node.dart';
+import 'package:firebase_js_interop/src/utils.dart';
 import 'package:firebase_js_interop/typescript.dart';
 
 /// Converter used by `withConverter()` to transform user objects of type
@@ -1759,8 +1758,29 @@ extension type QueryPartition._(JSObject _) implements JSObject {
   external Query toQuery();
 }
 
+/// Static members on [AggregateField]
+extension type AggregateFieldStatic._(JSObject _) implements JSObject {
+  /// Create an AggregateField object that can be used to compute the count of
+  /// documents in the result set of a query.
+  external AggregateField count();
+
+  /// Create an AggregateField object that can be used to compute the average of
+  /// a specified field over a range of documents in the result set of a query.
+  /// @param field Specifies the field to average across the result set.
+  external AggregateField average(JSAny field);
+
+  /// Create an AggregateField object that can be used to compute the sum of
+  /// a specified field over a range of documents in the result set of a query.
+  /// @param field Specifies the field to sum across the result set.
+  external AggregateField sum(JSAny field);
+}
+
 /// Represents an aggregation that can be performed by Firestore.
 extension type AggregateField._(JSObject _) implements JSObject {
+  /// Access to static members on [AggregateField]
+  static AggregateFieldStatic get static =>
+      staticAccess('@google-cloud/firestore', 'AggregateField');
+
   /// A type string to uniquely identify instances of this class.
   external String get type;
 
@@ -1776,20 +1796,6 @@ extension type AggregateField._(JSObject _) implements JSObject {
   /// @return `true` if this object is "equal" to the given object, as
   /// defined above, or `false` otherwise.
   external bool isEqual(AggregateField other);
-
-  /// Create an AggregateField object that can be used to compute the count of
-  /// documents in the result set of a query.
-  external static AggregateField count();
-
-  /// Create an AggregateField object that can be used to compute the average of
-  /// a specified field over a range of documents in the result set of a query.
-  /// @param field Specifies the field to average across the result set.
-  external static AggregateField average(JSAny field);
-
-  /// Create an AggregateField object that can be used to compute the sum of
-  /// a specified field over a range of documents in the result set of a query.
-  /// @param field Specifies the field to sum across the result set.
-  external static AggregateField sum(JSAny field);
 }
 
 /// A query that calculates aggregations over an underlying query.
@@ -1888,21 +1894,20 @@ extension type VectorValue._(JSObject _) implements JSObject {
   external bool isEqual(VectorValue other);
 }
 
-/// Sentinel values that can be used when writing document fields with set(),
-/// create() or update().
-extension type FieldValue._(JSObject _) implements JSObject {
+/// Static members on [FieldValue]
+extension type FieldValueStatic._(JSObject _) implements JSObject {
   /// Returns a sentinel used with set(), create() or update() to include a
   /// server-generated timestamp in the written data.
   ///
   /// @return The FieldValue sentinel for use in a call to set(), create() or
   /// update().
-  external static FieldValue serverTimestamp();
+  external FieldValue serverTimestamp();
 
   /// Returns a sentinel for use with update() or set() with {merge:true} to
   /// mark a field for deletion.
   ///
   /// @return The FieldValue sentinel for use in a call to set() or update().
-  external static FieldValue delete();
+  external FieldValue delete();
 
   /// Returns a special value that can be used with set(), create() or update()
   /// that tells the server to increment the field's current value by the given
@@ -1919,7 +1924,7 @@ extension type FieldValue._(JSObject _) implements JSObject {
   /// @param n The value to increment by.
   /// @return The FieldValue sentinel for use in a call to set(), create() or
   /// update().
-  external static FieldValue increment(num n);
+  external FieldValue increment(num n);
 
   /// Returns a special value that can be used with set(), create() or update()
   /// that tells the server to union the given elements with any array value
@@ -1931,7 +1936,7 @@ extension type FieldValue._(JSObject _) implements JSObject {
   /// @param elements The elements to union into the array.
   /// @return The FieldValue sentinel for use in a call to set(), create() or
   /// update().
-  external static FieldValue arrayUnion(JSArray elements);
+  external FieldValue arrayUnion(JSArray elements);
 
   /// Returns a special value that can be used with set(), create() or update()
   /// that tells the server to remove the given elements from any array value
@@ -1942,10 +1947,18 @@ extension type FieldValue._(JSObject _) implements JSObject {
   /// @param elements The elements to remove from the array.
   /// @return The FieldValue sentinel for use in a call to set(), create() or
   /// update().
-  external static FieldValue arrayRemove(JSArray elements);
+  external FieldValue arrayRemove(JSArray elements);
 
   /// @return A new `VectorValue` constructed with a copy of the given array of number.
-  external static FieldValue vector(JSArray<JSNumber>? values);
+  external FieldValue vector(JSArray<JSNumber>? values);
+}
+
+/// Sentinel values that can be used when writing document fields with set(),
+/// create() or update().
+extension type FieldValue._(JSObject _) implements JSObject {
+  /// Access to static members on [FieldValue]
+  static FieldValueStatic get static =>
+      staticAccess('@google-cloud/firestore', 'FieldValue');
 
   /// Returns true if this `FieldValue` is equal to the provided one.
   ///
@@ -1954,13 +1967,20 @@ extension type FieldValue._(JSObject _) implements JSObject {
   external bool isEqual(FieldValue other);
 }
 
+/// Static members on [FieldPath]
+extension type FieldPathStatic._(JSObject _) implements JSObject {
+  /// Returns a special sentinel FieldPath to refer to the ID of a document.
+  /// It can be used in queries to sort or filter by the document ID.
+  external FieldPath documentId();
+}
+
 /// A FieldPath refers to a field in a document. The path may consist of a
 /// single field name (referring to a top-level field in the document), or a
 /// list of field names (referring to a nested field in the document).
 extension type FieldPath._(JSObject _) implements JSObject {
-  /// Returns a special sentinel FieldPath to refer to the ID of a document.
-  /// It can be used in queries to sort or filter by the document ID.
-  external static FieldPath documentId();
+  /// Access to static members on [FieldPath]
+  static FieldPathStatic get static =>
+      staticAccess('@google-cloud/firestore', 'FieldPath');
 
   /// Returns true if this `FieldPath` is equal to the provided one.
   ///
@@ -1969,7 +1989,7 @@ extension type FieldPath._(JSObject _) implements JSObject {
   external bool isEqual(FieldPath other);
 }
 
-/// Static methods on [Timestamp]
+/// Static members on [Timestamp]
 extension type TimestampStatic._(JSObject _) implements JSObject {
   /// Creates a new timestamp with the current date, with millisecond precision.
   ///
@@ -2002,9 +2022,9 @@ extension type TimestampStatic._(JSObject _) implements JSObject {
 ///
 /// @see https://github.com/google/protobuf/blob/master/src/google/protobuf/timestamp.proto
 extension type Timestamp._(JSObject _) implements JSObject {
-  /// Access to static methods on [Timestamp]
-  static TimestampStatic get static => require('@google-cloud/firestore')['Timestamp'] as TimestampStatic;
-
+  /// Access to static members on [Timestamp]
+  static TimestampStatic get static =>
+      staticAccess('@google-cloud/firestore', 'Timestamp');
 
   /// Creates a new timestamp.
   ///
@@ -2131,12 +2151,8 @@ abstract final class GrpcStatus {
   static const UNAUTHENTICATED = 16;
 }
 
-/// A `Filter` represents a restriction on one or more field values and can
-/// be used to refine the results of a {@link Query}.
-/// `Filters`s are created by invoking {@link Filter#where}, {@link Filter#or},
-/// or {@link Filter#and} and can then be passed to {@link Query#where}
-/// to create a new {@link Query} instance that also contains this `Filter`.
-extension type Filter._(JSObject _) implements JSObject {
+/// Static members on [Filter]
+extension type FilterStatic._(JSObject _) implements JSObject {
   /// Creates and returns a new [Filter]{@link Filter}, which can be
   /// applied to [Query.where()]{@link Query#where}, [Filter.or()]{@link Filter#or},
   /// or [Filter.and()]{@link Filter#and}. When applied to a [Query]{@link Query}
@@ -2162,7 +2178,7 @@ extension type Filter._(JSObject _) implements JSObject {
   ///   });
   /// });
   /// ```
-  external static Filter where(JSAny fieldPath, String opStr, JSAny value);
+  external Filter where(JSAny fieldPath, String opStr, JSAny value);
 
   /// Creates and returns a new [Filter]{@link Filter} that is a
   /// disjunction of the given {@link Filter}s. A disjunction filter includes
@@ -2191,7 +2207,7 @@ extension type Filter._(JSObject _) implements JSObject {
   ///   });
   /// });
   /// ```
-  external static Filter or(JSArray<Filter> filters);
+  external Filter or(JSArray<Filter> filters);
 
   /// Creates and returns a new [Filter]{@link Filter} that is a
   /// conjunction of the given {@link Filter}s. A conjunction filter includes
@@ -2220,7 +2236,18 @@ extension type Filter._(JSObject _) implements JSObject {
   ///   });
   /// });
   /// ```
-  external static Filter and(JSArray<Filter> filters);
+  external Filter and(JSArray<Filter> filters);
+}
+
+/// A `Filter` represents a restriction on one or more field values and can
+/// be used to refine the results of a {@link Query}.
+/// `Filters`s are created by invoking {@link Filter#where}, {@link Filter#or},
+/// or {@link Filter#and} and can then be passed to {@link Query#where}
+/// to create a new {@link Query} instance that also contains this `Filter`.
+extension type Filter._(JSObject _) implements JSObject {
+  /// Access to static members on [Filter]
+  static FilterStatic get static =>
+      staticAccess('@google-cloud/firestore', 'Filter');
 }
 
 /// A duration

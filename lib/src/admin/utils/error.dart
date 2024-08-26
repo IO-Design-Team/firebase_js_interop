@@ -16,11 +16,10 @@
  */
 
 import 'dart:js_interop';
-import 'dart:js_interop_unsafe';
 
-import 'package:firebase_js_interop/node.dart';
 import 'package:firebase_js_interop/src/admin/app/index.dart' as app
     show FirebaseError;
+import 'package:firebase_js_interop/src/utils.dart';
 
 /// Firebase error code structure. This extends Error.
 extension type FirebaseError._(JSObject _) implements app.FirebaseError {
@@ -98,7 +97,7 @@ extension type AppErrorCodesStatic._(JSObject _) implements FirebaseError {
 
 /// App client error codes and their default messages.
 extension type AppErrorCodes._(JSObject _) implements FirebaseError {
+  /// Access to static members on [AppErrorCodes]
   static AppErrorCodesStatic get static =>
-      require('firebase-admin/utils/error')['AppErrorCodes']
-          as AppErrorCodesStatic;
+      staticAccess('firebase-admin/utils/error', 'AppErrorCodes');
 }

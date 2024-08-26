@@ -77,7 +77,8 @@ void main() {
                     .doc(participant)
                     .update(
                       {
-                        'fcmTokens': FieldValue.arrayRemove([token.toJS].toJS),
+                        'fcmTokens':
+                            FieldValue.static.arrayRemove([token.toJS].toJS),
                       }.toJS,
                     )
                     .toDart;
