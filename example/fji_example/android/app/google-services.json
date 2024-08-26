@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "806694052777",
+    "project_id": "fji-example",
+    "storage_bucket": "fji-example.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806694052777:android:c69934cee886a2571f1ab8",
+        "android_client_info": {
+          "package_name": "com.example.fji_example"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBhZ0OpEioMJR-adK0yINYsrVwxxzEUNyo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
