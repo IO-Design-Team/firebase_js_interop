@@ -12,5 +12,12 @@ dependencies:
   fji_example_core:
     path: ../fji_example_core
 
+  json_annotation: ^4.9.0
+  cloud_firestore_odm: ^1.0.0-dev.87
+  cloud_firestore: ^5.2.1
+
 dev_dependencies:
   rexios_lints: ^8.0.0
+  build_runner: ^2.4.12
+  json_serializable: ^6.8.0
+  cloud_firestore_odm_generator: ^1.0.0-dev.88

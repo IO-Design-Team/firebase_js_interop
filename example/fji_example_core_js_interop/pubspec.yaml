@@ -7,6 +7,10 @@ environment:
 dependencies:
   fji_example_core:
     path: ../fji_example_core
+  firebase_js_interop:
+    path: ../../
 
 dev_dependencies:
   rexios_lints: ^8.0.0
+  build_runner: ^2.4.12
+  json_serializable: ^6.8.0
