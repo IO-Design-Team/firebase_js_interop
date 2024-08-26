@@ -21,6 +21,15 @@ void main() {
     }.toJS,
   );
 
+  exports['beforeUserCreated'] = FirebaseFunctions.identity.beforeUserCreated(
+    (AuthBlockingEvent event) {
+      return firestore
+          .collection('users')
+          .doc(event.data.uid)
+          .set(FjiUser().toJson().toJS);
+    }.toJS,
+  );
+
   exports['onMessageCreated'] = FirebaseFunctions.firestore.onDocumentCreated(
     '/chats/{chatId}/messages/{messageId}'.toJS,
     (FirestoreEvent<DocumentSnapshot> event) {
@@ -77,15 +86,6 @@ void main() {
           }
         }
       });
-    }.toJS,
-  );
-
-  exports['beforeUserCreated'] = FirebaseFunctions.identity.beforeUserCreated(
-    (AuthBlockingEvent event) {
-      return firestore
-          .collection('users')
-          .doc(event.data.uid)
-          .set(FjiUser().toJson().toJS);
     }.toJS,
   );
 }
