@@ -89,7 +89,8 @@ class ChatsList extends StatelessWidget {
 
   void showChat(NavigatorState navigator, String chatId) {
     navigator.push(
-        MaterialPageRoute(builder: (context) => ChatScreen(chatId: chatId)));
+      MaterialPageRoute(builder: (context) => ChatScreen(chatId: chatId)),
+    );
   }
 }
 
