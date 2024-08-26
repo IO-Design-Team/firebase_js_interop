@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_ui_firestore/firebase_ui_firestore.dart';
 import 'package:fji_example/firebase_options.dart';
 import 'package:fji_example_core_flutter/model.dart';
@@ -16,26 +15,12 @@ void main() async {
 
   final auth = FirebaseAuth.instance;
   final firestore = FirebaseFirestore.instance;
-  final messaging = FirebaseMessaging.instance;
 
   await auth.useAuthEmulator('localhost', 9099);
   firestore.useFirestoreEmulator('localhost', 8080);
 
   // This will call the `beforeUserCreated` function
   await auth.signInAnonymously();
-
-  await messaging.requestPermission();
-
-  //! NOTE: THIS IS NOT PRODUCTION READY
-  final token = await messaging.getToken();
-  if (token != null) {
-    await firestore.runTransaction((transaction) async {
-      final userDoc = usersRef.doc(auth.currentUser!.uid);
-      final userSnap = await userDoc.transactionGet(transaction);
-      final tokens = userSnap.data!.fcmTokens;
-      userDoc.transactionUpdate(transaction, fcmTokens: {...tokens, token});
-    });
-  }
 
   runApp(const MaterialApp(home: ChatsList()));
 }
