@@ -1,0 +1,7 @@
+name: fji_example_core
+
+environment:
+  sdk: ^3.0.0
+
+dev_dependencies:
+  rexios_lints: ^8.0.0

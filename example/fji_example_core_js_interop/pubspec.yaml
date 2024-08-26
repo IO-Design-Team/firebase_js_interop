@@ -1,0 +1,11 @@
+name: fji_example_core_js_interop
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  fji_example_core:
+    path: ../fji_example_core
+
+dev_dependencies:
+  rexios_lints: ^8.0.0

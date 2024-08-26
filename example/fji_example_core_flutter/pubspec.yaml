@@ -1,0 +1,15 @@
+name: fji_example_core_flutter
+
+environment:
+  sdk: ^3.0.0
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  fji_example_core:
+    path: ../fji_example_core
+
+dev_dependencies:
+  rexios_lints: ^8.0.0
