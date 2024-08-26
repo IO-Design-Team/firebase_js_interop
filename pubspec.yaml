@@ -13,3 +13,9 @@ dependencies:
 dev_dependencies:
   test: ^1.24.0
   rexios_lints: ^8.0.0
+
+false_secrets:
+  - /example/fji_example/android/app/google-services.json
+  - /example/fji_example/ios/Runner/GoogleService-Info.plist
+  - /example/fji_example/lib/firebase_options.dart
+  - /example/fji_example/macos/Runner/GoogleService-Info.plist
