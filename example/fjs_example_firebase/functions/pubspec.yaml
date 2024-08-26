@@ -1,4 +1,4 @@
-name: acadia_firebase_functions
+name: fjs_example_firebase_functions
 publish_to: none
 
 environment:
