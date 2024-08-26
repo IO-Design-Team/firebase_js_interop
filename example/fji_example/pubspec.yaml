@@ -8,10 +8,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  fji_example_core_flutter:
+    path: ../fji_example_core_flutter
+
   firebase_core: ^3.3.0
   cloud_firestore: ^5.2.1
   firebase_messaging: ^15.0.4
   firebase_auth: ^5.1.4
+  firebase_ui_firestore: ^1.6.4
+  flutter_chat_ui: ^1.6.15
+  flutter_chat_types: ^3.6.2
 
 dev_dependencies:
   flutter_test:

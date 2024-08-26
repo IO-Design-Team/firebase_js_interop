@@ -28,6 +28,18 @@ class FjiChat extends core.FjiChat {
   Map<String, dynamic> toJson() => _$FjiChatToJson(this);
   factory FjiChat.fromJson(Map<String, dynamic> json) =>
       _$FjiChatFromJson(json);
+
+  FjiChat copyWith({
+    Set<String>? participants,
+    String? lastMessage,
+    DateTime? lastMessageTime,
+  }) {
+    return FjiChat(
+      participants: participants ?? this.participants,
+      lastMessage: lastMessage ?? this.lastMessage,
+      lastMessageTime: lastMessageTime ?? this.lastMessageTime,
+    );
+  }
 }
 
 @firestoreJsInteropSerializable
