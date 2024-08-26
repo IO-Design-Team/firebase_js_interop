@@ -20,10 +20,13 @@ void main() async {
   firestore.useFirestoreEmulator('localhost', 8080);
 
   // Start fresh every time for the demo
-  await auth.signOut();
+  await auth.currentUser?.delete();
 
   // This will call the `beforeUserCreated` function
-  await auth.signInAnonymously();
+  await auth.createUserWithEmailAndPassword(
+    email: 'test@example.com',
+    password: 'password1234',
+  );
 
   runApp(const MaterialApp(home: ChatsList()));
 }
