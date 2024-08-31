@@ -1,3 +1,7 @@
+## 0.0.4
+
+- Updates README with the proper `package.json` scripts that are used during function deployment
+
 ## 0.0.3
 
 - Updates example readme

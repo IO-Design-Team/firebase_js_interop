@@ -125,6 +125,10 @@ lib/**
 
 ```json
 {
+  "scripts": {
+    "lint": "dart analyze --fatal-infos",
+    "build": "dart run tool/build.dart"
+  },
   "main": "lib/index.js"
 }
 ```

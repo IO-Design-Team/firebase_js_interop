@@ -1,5 +1,9 @@
 {
   "name": "functions",
+  "scripts": {
+    "lint": "dart analyze --fatal-infos",
+    "build": "dart run tool/build.dart"
+  },
   "description": "Cloud Functions for Firebase",
   "engines": {
     "node": "18"
