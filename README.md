@@ -13,23 +13,23 @@ Wrappers and tools for composing Firebase Cloud Functions in the Dart language
 
 ### Admin
 
-| Service            | Status | Comment              |
-| ------------------ | ------ | -------------------- |
-| App                | 🟩     |                      |
-| App Check          | 🟥     |                      |
-| Auth               | 🟥     |                      |
-| Credential         | 🟥     |                      |
-| Database           | 🟥     |                      |
-| Eventarc           | 🟥     |                      |
-| Extensions         | 🟥     |                      |
-| Firestore          | 🟩     |                      |
-| Functions          | 🟥     |                      |
-| Installations      | 🟥     |                      |
-| Messaging          | 🟧     | Only message sending |
-| Project Management | 🟥     |                      |
-| Remote Config      | 🟥     |                      |
-| Security Rules     | 🟥     |                      |
-| Storage            | 🟥     |                      |
+| Service            | Status | Comment                                                   |
+| ------------------ | ------ | --------------------------------------------------------- |
+| App                | 🟩     |                                                           |
+| App Check          | 🟥     | App Check enforcement for callable functions is supported |
+| Auth               | 🟥     |                                                           |
+| Credential         | 🟥     |                                                           |
+| Database           | 🟥     |                                                           |
+| Eventarc           | 🟥     |                                                           |
+| Extensions         | 🟥     |                                                           |
+| Firestore          | 🟩     |                                                           |
+| Functions          | 🟥     |                                                           |
+| Installations      | 🟥     |                                                           |
+| Messaging          | 🟧     | Only message sending                                      |
+| Project Management | 🟥     |                                                           |
+| Remote Config      | 🟥     |                                                           |
+| Security Rules     | 🟥     |                                                           |
+| Storage            | 🟥     |                                                           |
 
 ## Functions
 
