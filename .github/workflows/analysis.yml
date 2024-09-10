@@ -1,0 +1,59 @@
+name: Analyze
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analyze-dart:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          cache: true
+      - name: Pub cache
+        uses: actions/cache@v4
+        env:
+          CACHE_NAME: firebase_js_interop
+        with:
+          path: ${{ env.PUB_CACHE }}
+          key: pub-cache-${{ env.CACHE_NAME }}-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: pub-cache-${{ env.CACHE_NAME }}-
+      - name: Install puby
+        run: dart pub global activate puby
+      - name: Pub get
+        run: puby link
+      - name: Format
+        run: dart format --set-exit-if-changed .
+      - name: Analyze
+        run: dart analyze --fatal-infos .
+
+  pana:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          cache: true
+      - name: Pub cache
+        uses: actions/cache@v4
+        env:
+          CACHE_NAME: firebase_js_interop
+        with:
+          path: ${{ env.PUB_CACHE }}
+          key: pub-cache-${{ env.CACHE_NAME }}-${{ hashFiles('**/pubspec.lock') }}
+          restore-keys: pub-cache-${{ env.CACHE_NAME }}-
+      - name: Install puby
+        run: dart pub global activate puby
+      - name: Pub get
+        run: puby link
+      - name: Package scan
+        run: |
+          dart pub global activate pana
+          pana --exit-code-threshold 0
