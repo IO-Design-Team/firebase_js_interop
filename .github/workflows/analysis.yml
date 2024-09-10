@@ -25,8 +25,10 @@ jobs:
           path: ${{ env.PUB_CACHE }}
           key: pub-cache-${{ env.CACHE_NAME }}-${{ hashFiles('**/pubspec.lock') }}
           restore-keys: pub-cache-${{ env.CACHE_NAME }}-
+      - name: Install puby
+        run: dart pub global activate puby
       - name: Pub get
-        run: flutter pub get
+        run: puby link
       - name: Format
         run: dart format --set-exit-if-changed .
       - name: Analyze
