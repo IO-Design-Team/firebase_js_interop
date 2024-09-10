@@ -17,6 +17,7 @@ The process for adding new interop code is as follows:
 ## Style
 
 - Only write interop for classes and functions that are public, non-deprecated, and meant for external use
+- Maintain the same declaration order as the JS SDK
 - Doc comments should be verbatim copied from the JS SDK, however convert them from `*` to `///`
 - Comment the expected signature of `JSFunction`s. See existing interop code for examples.
 - If there are multiple function definitions with the same name, choose the most flexible one
