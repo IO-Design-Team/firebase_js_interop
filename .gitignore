@@ -7,3 +7,5 @@
 pubspec.lock
 
 .DS_Store
+
+*.log
