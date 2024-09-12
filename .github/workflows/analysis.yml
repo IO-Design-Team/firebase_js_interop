@@ -32,8 +32,9 @@ jobs:
       - name: Format
         run: dart format --set-exit-if-changed .
       - name: Analyze
-        run: dart analyze --fatal-infos .
-        run: dart run custom_lint
+        run: |
+          dart analyze --fatal-infos .
+          dart run custom_lint
 
   pana:
     runs-on: ubuntu-latest
