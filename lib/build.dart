@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:node_preamble/preamble.dart';
+import 'package:path/path.dart' as path;
 
 /// The optimization level for the dart2js compiler
 enum OptimizationLevel {
@@ -39,9 +40,12 @@ const _endDart = '/// END DART';
 /// which will be used by the Functions runtime
 Future<void> buildCloudFunctions({
   OptimizationLevel optimization = OptimizationLevel.O2,
-  String output = 'lib/index.js',
-  String input = 'src/index.dart',
+  String? output,
+  String? input,
 }) async {
+  output ??= path.join('lib', 'index.js');
+  input ??= path.join('src', 'index.dart');
+
   final build = await Process.start(
     'dart',
     ['compile', 'js', '-$optimization', '-o', output, input],
