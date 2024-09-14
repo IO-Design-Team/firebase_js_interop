@@ -29,6 +29,6 @@ The process for adding new interop code is as follows:
 
 If interop for any other SDKs is necessary, please update this list
 
-- [Firebase Admin](https://github.com/firebase/firebase-admin-node)
-- [Firebase Functions](https://github.com/firebase/firebase-functions)
-- [Google Cloud Firestore](https://github.com/googleapis/nodejs-firestore)
+- [firebase-admin](https://github.com/firebase/firebase-admin-node)
+- [firebase-functions](https://github.com/firebase/firebase-functions)
+- [@google-cloud/firestore](https://github.com/googleapis/nodejs-firestore)
