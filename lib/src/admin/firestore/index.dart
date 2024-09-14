@@ -18,10 +18,10 @@
 import 'dart:js_interop';
 
 import 'package:firebase_js_interop/src/admin/app/index.dart';
-import 'package:firebase_js_interop/src/firestore/types/firestore.dart';
+import 'package:firebase_js_interop/src/google_cloud/firestore/types/firestore.dart';
 import 'package:firebase_js_interop/src/admin/firestore/firestore_internal.dart';
 
-export 'package:firebase_js_interop/src/firestore/types/firestore.dart'
+export 'package:firebase_js_interop/src/google_cloud/firestore/types/firestore.dart'
     hide Duration;
 export 'firestore_internal.dart';
 

@@ -31,4 +31,4 @@ If interop for any other SDKs is necessary, please update this list
 
 - [Firebase Admin](https://github.com/firebase/firebase-admin-node)
 - [Firebase Functions](https://github.com/firebase/firebase-functions)
-- [Firestore](https://github.com/googleapis/nodejs-firestore)
+- [Google Cloud Firestore](https://github.com/googleapis/nodejs-firestore)
