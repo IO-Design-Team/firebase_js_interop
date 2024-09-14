@@ -24,3 +24,11 @@ The process for adding new interop code is as follows:
 - File and folder names should be converted to `snake_case`
 - All identifiers should be strict `camelCase` or `PascalCase` unless doing so affects readability. For example, `photoURL` in JS should be changed to `photoUrl` in dart with an `@JS('photoURL')` annotation.
 - Adding lint ignores is fine in cases where fixing the lint would make code or comments less faithful to the source material
+
+## JS SDK Links
+
+If interop for any other SDKs is necessary, please update this list
+
+- [firebase-admin](https://github.com/firebase/firebase-admin-node)
+- [firebase-functions](https://github.com/firebase/firebase-functions)
+- [@google-cloud/firestore](https://github.com/googleapis/nodejs-firestore)
