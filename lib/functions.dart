@@ -5,6 +5,7 @@ export 'src/functions/common/options.dart';
 export 'src/functions/v2/providers/firestore.dart';
 export 'src/functions/v2/providers/https.dart';
 export 'src/functions/v2/providers/identity.dart';
+export 'src/functions/v2/providers/scheduler.dart';
 export 'src/functions/v2/core.dart';
 
 /// Access to Firebase Functions components
@@ -22,4 +23,8 @@ abstract final class FirebaseFunctions {
   /// Access to the Firebase Functions Identity methods
   static FirebaseFunctionsIdentity get identity =>
       require('firebase-functions/v2/identity') as FirebaseFunctionsIdentity;
+
+  /// Access to the Firebase Functions Schedule methods
+  static FirebaseFunctionsSchedule get schedule =>
+      require('firebase-functions/v2/scheduler') as FirebaseFunctionsSchedule;
 }
