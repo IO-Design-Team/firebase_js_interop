@@ -124,6 +124,54 @@ abstract class UserDocumentReference
   @override
   Future<void> delete();
 
+  /// Sets data on the document, overwriting any existing data. If the document
+  /// does not yet exist, it will be created.
+  ///
+  /// If [SetOptions] are provided, the data can be merged into an existing
+  /// document instead of overwriting.
+  ///
+  /// Any [FieldValue]s provided will replace the corresponding fields in the
+  /// [model] during serialization.
+  Future<void> set(
+    FjiUser model, {
+    SetOptions? options,
+    FieldValue displayNameFieldValue,
+    FieldValue profileImageFieldValue,
+    FieldValue fcmTokensFieldValue,
+  });
+
+  /// Writes to the document using the transaction API.
+  ///
+  /// If the document does not exist yet, it will be created. If you pass
+  /// [SetOptions], the provided data can be merged into the existing document.
+  ///
+  /// Any [FieldValue]s provided will replace the corresponding fields in the
+  /// [model] during serialization.
+  void transactionSet(
+    Transaction transaction,
+    FjiUser model, {
+    SetOptions? options,
+    FieldValue displayNameFieldValue,
+    FieldValue profileImageFieldValue,
+    FieldValue fcmTokensFieldValue,
+  });
+
+  /// Writes to the document using the batch API.
+  ///
+  /// If the document does not exist yet, it will be created. If you pass
+  /// [SetOptions], the provided data can be merged into the existing document.
+  ///
+  /// Any [FieldValue]s provided will replace the corresponding fields in the
+  /// [model] during serialization.
+  void batchSet(
+    WriteBatch batch,
+    FjiUser model, {
+    SetOptions? options,
+    FieldValue displayNameFieldValue,
+    FieldValue profileImageFieldValue,
+    FieldValue fcmTokensFieldValue,
+  });
+
   /// Updates data on the document. Data will be merged with any existing
   /// document data.
   ///
@@ -190,6 +238,72 @@ class _$UserDocumentReference
   @override
   Future<UserDocumentSnapshot> transactionGet(Transaction transaction) {
     return transaction.get(reference).then(UserDocumentSnapshot._);
+  }
+
+  Future<void> set(
+    FjiUser model, {
+    SetOptions? options,
+    FieldValue? displayNameFieldValue,
+    FieldValue? profileImageFieldValue,
+    FieldValue? fcmTokensFieldValue,
+  }) async {
+    final json = {
+      ..._$FjiUserToJson(model),
+      if (displayNameFieldValue != null)
+        _$FjiUserFieldMap['displayName']!: displayNameFieldValue,
+      if (profileImageFieldValue != null)
+        _$FjiUserFieldMap['profileImage']!: profileImageFieldValue,
+      if (fcmTokensFieldValue != null)
+        _$FjiUserFieldMap['fcmTokens']!: fcmTokensFieldValue,
+    };
+
+    final castedReference = reference.withConverter<Map<String, dynamic>>(
+      fromFirestore: (snapshot, options) => throw UnimplementedError(),
+      toFirestore: (value, options) => value,
+    );
+    return castedReference.set(json, options);
+  }
+
+  void transactionSet(
+    Transaction transaction,
+    FjiUser model, {
+    SetOptions? options,
+    FieldValue? displayNameFieldValue,
+    FieldValue? profileImageFieldValue,
+    FieldValue? fcmTokensFieldValue,
+  }) {
+    final json = {
+      ..._$FjiUserToJson(model),
+      if (displayNameFieldValue != null)
+        _$FjiUserFieldMap['displayName']!: displayNameFieldValue,
+      if (profileImageFieldValue != null)
+        _$FjiUserFieldMap['profileImage']!: profileImageFieldValue,
+      if (fcmTokensFieldValue != null)
+        _$FjiUserFieldMap['fcmTokens']!: fcmTokensFieldValue,
+    };
+
+    transaction.set(reference, json, options);
+  }
+
+  void batchSet(
+    WriteBatch batch,
+    FjiUser model, {
+    SetOptions? options,
+    FieldValue? displayNameFieldValue,
+    FieldValue? profileImageFieldValue,
+    FieldValue? fcmTokensFieldValue,
+  }) {
+    final json = {
+      ..._$FjiUserToJson(model),
+      if (displayNameFieldValue != null)
+        _$FjiUserFieldMap['displayName']!: displayNameFieldValue,
+      if (profileImageFieldValue != null)
+        _$FjiUserFieldMap['profileImage']!: profileImageFieldValue,
+      if (fcmTokensFieldValue != null)
+        _$FjiUserFieldMap['fcmTokens']!: fcmTokensFieldValue,
+    };
+
+    batch.set(reference, json, options);
   }
 
   Future<void> update({
@@ -1325,6 +1439,54 @@ abstract class ChatDocumentReference
   @override
   Future<void> delete();
 
+  /// Sets data on the document, overwriting any existing data. If the document
+  /// does not yet exist, it will be created.
+  ///
+  /// If [SetOptions] are provided, the data can be merged into an existing
+  /// document instead of overwriting.
+  ///
+  /// Any [FieldValue]s provided will replace the corresponding fields in the
+  /// [model] during serialization.
+  Future<void> set(
+    FjiChat model, {
+    SetOptions? options,
+    FieldValue participantsFieldValue,
+    FieldValue lastMessageFieldValue,
+    FieldValue lastMessageTimeFieldValue,
+  });
+
+  /// Writes to the document using the transaction API.
+  ///
+  /// If the document does not exist yet, it will be created. If you pass
+  /// [SetOptions], the provided data can be merged into the existing document.
+  ///
+  /// Any [FieldValue]s provided will replace the corresponding fields in the
+  /// [model] during serialization.
+  void transactionSet(
+    Transaction transaction,
+    FjiChat model, {
+    SetOptions? options,
+    FieldValue participantsFieldValue,
+    FieldValue lastMessageFieldValue,
+    FieldValue lastMessageTimeFieldValue,
+  });
+
+  /// Writes to the document using the batch API.
+  ///
+  /// If the document does not exist yet, it will be created. If you pass
+  /// [SetOptions], the provided data can be merged into the existing document.
+  ///
+  /// Any [FieldValue]s provided will replace the corresponding fields in the
+  /// [model] during serialization.
+  void batchSet(
+    WriteBatch batch,
+    FjiChat model, {
+    SetOptions? options,
+    FieldValue participantsFieldValue,
+    FieldValue lastMessageFieldValue,
+    FieldValue lastMessageTimeFieldValue,
+  });
+
   /// Updates data on the document. Data will be merged with any existing
   /// document data.
   ///
@@ -1396,6 +1558,72 @@ class _$ChatDocumentReference
   @override
   Future<ChatDocumentSnapshot> transactionGet(Transaction transaction) {
     return transaction.get(reference).then(ChatDocumentSnapshot._);
+  }
+
+  Future<void> set(
+    FjiChat model, {
+    SetOptions? options,
+    FieldValue? participantsFieldValue,
+    FieldValue? lastMessageFieldValue,
+    FieldValue? lastMessageTimeFieldValue,
+  }) async {
+    final json = {
+      ..._$FjiChatToJson(model),
+      if (participantsFieldValue != null)
+        _$FjiChatFieldMap['participants']!: participantsFieldValue,
+      if (lastMessageFieldValue != null)
+        _$FjiChatFieldMap['lastMessage']!: lastMessageFieldValue,
+      if (lastMessageTimeFieldValue != null)
+        _$FjiChatFieldMap['lastMessageTime']!: lastMessageTimeFieldValue,
+    };
+
+    final castedReference = reference.withConverter<Map<String, dynamic>>(
+      fromFirestore: (snapshot, options) => throw UnimplementedError(),
+      toFirestore: (value, options) => value,
+    );
+    return castedReference.set(json, options);
+  }
+
+  void transactionSet(
+    Transaction transaction,
+    FjiChat model, {
+    SetOptions? options,
+    FieldValue? participantsFieldValue,
+    FieldValue? lastMessageFieldValue,
+    FieldValue? lastMessageTimeFieldValue,
+  }) {
+    final json = {
+      ..._$FjiChatToJson(model),
+      if (participantsFieldValue != null)
+        _$FjiChatFieldMap['participants']!: participantsFieldValue,
+      if (lastMessageFieldValue != null)
+        _$FjiChatFieldMap['lastMessage']!: lastMessageFieldValue,
+      if (lastMessageTimeFieldValue != null)
+        _$FjiChatFieldMap['lastMessageTime']!: lastMessageTimeFieldValue,
+    };
+
+    transaction.set(reference, json, options);
+  }
+
+  void batchSet(
+    WriteBatch batch,
+    FjiChat model, {
+    SetOptions? options,
+    FieldValue? participantsFieldValue,
+    FieldValue? lastMessageFieldValue,
+    FieldValue? lastMessageTimeFieldValue,
+  }) {
+    final json = {
+      ..._$FjiChatToJson(model),
+      if (participantsFieldValue != null)
+        _$FjiChatFieldMap['participants']!: participantsFieldValue,
+      if (lastMessageFieldValue != null)
+        _$FjiChatFieldMap['lastMessage']!: lastMessageFieldValue,
+      if (lastMessageTimeFieldValue != null)
+        _$FjiChatFieldMap['lastMessageTime']!: lastMessageTimeFieldValue,
+    };
+
+    batch.set(reference, json, options);
   }
 
   Future<void> update({
@@ -2541,6 +2769,54 @@ abstract class FjiMessageDocumentReference
   @override
   Future<void> delete();
 
+  /// Sets data on the document, overwriting any existing data. If the document
+  /// does not yet exist, it will be created.
+  ///
+  /// If [SetOptions] are provided, the data can be merged into an existing
+  /// document instead of overwriting.
+  ///
+  /// Any [FieldValue]s provided will replace the corresponding fields in the
+  /// [model] during serialization.
+  Future<void> set(
+    FjiMessage model, {
+    SetOptions? options,
+    FieldValue timestampFieldValue,
+    FieldValue authorFieldValue,
+    FieldValue textFieldValue,
+  });
+
+  /// Writes to the document using the transaction API.
+  ///
+  /// If the document does not exist yet, it will be created. If you pass
+  /// [SetOptions], the provided data can be merged into the existing document.
+  ///
+  /// Any [FieldValue]s provided will replace the corresponding fields in the
+  /// [model] during serialization.
+  void transactionSet(
+    Transaction transaction,
+    FjiMessage model, {
+    SetOptions? options,
+    FieldValue timestampFieldValue,
+    FieldValue authorFieldValue,
+    FieldValue textFieldValue,
+  });
+
+  /// Writes to the document using the batch API.
+  ///
+  /// If the document does not exist yet, it will be created. If you pass
+  /// [SetOptions], the provided data can be merged into the existing document.
+  ///
+  /// Any [FieldValue]s provided will replace the corresponding fields in the
+  /// [model] during serialization.
+  void batchSet(
+    WriteBatch batch,
+    FjiMessage model, {
+    SetOptions? options,
+    FieldValue timestampFieldValue,
+    FieldValue authorFieldValue,
+    FieldValue textFieldValue,
+  });
+
   /// Updates data on the document. Data will be merged with any existing
   /// document data.
   ///
@@ -2612,6 +2888,69 @@ class _$FjiMessageDocumentReference
   @override
   Future<FjiMessageDocumentSnapshot> transactionGet(Transaction transaction) {
     return transaction.get(reference).then(FjiMessageDocumentSnapshot._);
+  }
+
+  Future<void> set(
+    FjiMessage model, {
+    SetOptions? options,
+    FieldValue? timestampFieldValue,
+    FieldValue? authorFieldValue,
+    FieldValue? textFieldValue,
+  }) async {
+    final json = {
+      ..._$FjiMessageToJson(model),
+      if (timestampFieldValue != null)
+        _$FjiMessageFieldMap['timestamp']!: timestampFieldValue,
+      if (authorFieldValue != null)
+        _$FjiMessageFieldMap['author']!: authorFieldValue,
+      if (textFieldValue != null) _$FjiMessageFieldMap['text']!: textFieldValue,
+    };
+
+    final castedReference = reference.withConverter<Map<String, dynamic>>(
+      fromFirestore: (snapshot, options) => throw UnimplementedError(),
+      toFirestore: (value, options) => value,
+    );
+    return castedReference.set(json, options);
+  }
+
+  void transactionSet(
+    Transaction transaction,
+    FjiMessage model, {
+    SetOptions? options,
+    FieldValue? timestampFieldValue,
+    FieldValue? authorFieldValue,
+    FieldValue? textFieldValue,
+  }) {
+    final json = {
+      ..._$FjiMessageToJson(model),
+      if (timestampFieldValue != null)
+        _$FjiMessageFieldMap['timestamp']!: timestampFieldValue,
+      if (authorFieldValue != null)
+        _$FjiMessageFieldMap['author']!: authorFieldValue,
+      if (textFieldValue != null) _$FjiMessageFieldMap['text']!: textFieldValue,
+    };
+
+    transaction.set(reference, json, options);
+  }
+
+  void batchSet(
+    WriteBatch batch,
+    FjiMessage model, {
+    SetOptions? options,
+    FieldValue? timestampFieldValue,
+    FieldValue? authorFieldValue,
+    FieldValue? textFieldValue,
+  }) {
+    final json = {
+      ..._$FjiMessageToJson(model),
+      if (timestampFieldValue != null)
+        _$FjiMessageFieldMap['timestamp']!: timestampFieldValue,
+      if (authorFieldValue != null)
+        _$FjiMessageFieldMap['author']!: authorFieldValue,
+      if (textFieldValue != null) _$FjiMessageFieldMap['text']!: textFieldValue,
+    };
+
+    batch.set(reference, json, options);
   }
 
   Future<void> update({
