@@ -14,15 +14,6 @@ dependencies:
 dev_dependencies:
   rexios_lints: ^8.1.0
 
-dependency_overrides:
-  custom_lint:
-    git:
-      prs:
-        - https://github.com/invertase/dart_custom_lint/pull/272
-      url: https://github.com/Rexios80/dart_custom_lint
-      ref: 6056693aece8cb4f8cbd7e60c9e5996cc21cb190
-      path: packages/custom_lint
-
 platforms:
   web:
 
