@@ -225,7 +225,7 @@ extension type Firestore._(JSObject _) implements JSObject {
   /// followed by any additional `DocumentReference` documents. If used, the
   /// optional `ReadOptions` must be the last argument.
   ///
-  /// @param {Array.<DocumentReference|ReadOptions>} documentRefsOrReadOptions
+  /// @param {`Array.<DocumentReference|ReadOptions>`} documentRefsOrReadOptions
   /// The `DocumentReferences` to receive, followed by an optional field
   /// mask.
   /// @return A Promise that resolves with an array of resulting document
@@ -420,7 +420,7 @@ extension type Transaction._(JSObject _) implements JSObject {
   /// followed by any additional `DocumentReference` documents. If used, the
   /// optional `ReadOptions` must be the last argument.
   ///
-  /// @param {Array.<DocumentReference|ReadOptions>} documentRefsOrReadOptions
+  /// @param {`Array.<DocumentReference|ReadOptions>`} documentRefsOrReadOptions
   /// The `DocumentReferences` to receive, followed by an optional field
   /// mask.
   /// @return A Promise that resolves with an array of resulting document
@@ -1626,7 +1626,7 @@ extension type CollectionReference._(JSObject _) implements Query {
   /// document reference (e.g. via `.get()` or `.onSnapshot()`) will return a
   /// `DocumentSnapshot` whose `.exists` property is false.
   ///
-  /// @return {Promise<DocumentReference[]>} The list of documents in this
+  /// @return {`Promise<DocumentReference[]>`} The list of documents in this
   /// collection.
   external JSPromise<JSArray<DocumentReference>> listDocuments();
 

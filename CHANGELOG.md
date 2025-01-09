@@ -1,3 +1,7 @@
+## 0.0.6
+
+- Fixes analysis issues
+
 ## 0.0.5
 
 - Fixes `buildCloudFunctions` default paths on non-unix systems
