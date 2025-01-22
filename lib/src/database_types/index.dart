@@ -27,7 +27,7 @@ extension type IteratedDataSnapshot._(JSObject _) implements DataSnapshot {
 }
 
 /// A [DataSnapshot] contains data from a Database location.
-extension type DataSnapshot._(JSObject _) {
+extension type DataSnapshot._(JSObject _) implements JSObject {
   /// Gets another [DataSnapshot] for the location at the specified relative path.
   external DataSnapshot child(String path);
 
@@ -279,6 +279,80 @@ extension type Query._(JSObject _) implements JSObject {
   external String getUrl();
 }
 
+/// A [Reference] represents a specific location in your Database and can be
+/// used for reading or writing data to that Database location.
+extension type Reference._(JSObject _) implements Query {
+  /// Gets a [Reference] for the location at the specified relative path.
+  external Reference child(String path);
+
+  /// The last part of the [Reference]'s path.
+  external String? get key;
+
+  /// Returns an [OnDisconnect] object - see Enabling Offline Capabilities in
+  /// JavaScript for more information on how to use it.
+  external OnDisconnect onDisconnect();
+
+  /// The parent location of a [Reference].
+  external Reference? get parent;
+
+  /// Generates a new child location using a unique key and returns its
+  /// [Reference].
+  // TODO: Properly handle ThenableReference
+  external JSPromise<Reference> push({
+    JSAny? value,
+    // (a: Error | null) => any
+    JSFunction onComplete,
+  });
+
+  /// Removes the data at this Database location.
+  external JSPromise remove([
+    // (a: Error | null) => void
+    JSFunction onComplete,
+  ]);
+
+  /// The root [Reference] of the Database.
+  external Reference get root;
+
+  /// Writes data to this Database location.
+  external JSPromise set(
+    JSAny? value, [
+    // (a: Error | null) => void
+    JSFunction onComplete,
+  ]);
+
+  /// Sets a priority for the data at this Database location.
+  external JSPromise setPriority(
+    JSAny? priority, [
+    // (a: Error | null) => void
+    JSFunction onComplete,
+  ]);
+
+  /// Writes data the Database location. Like `set()` but also specifies the
+  /// priority for that data.
+  external JSPromise setWithPriority(
+    JSAny? newVal,
+    JSAny? newPriority, [
+    // (a: Error | null) => void
+    JSFunction onComplete,
+  ]);
+
+  /// Atomically modifies the data at this location.
+  external JSPromise<TransactionResult> transaction(
+    // (a: any) => any
+    JSFunction transactionUpdate, {
+    // (a: Error | null, b: boolean, c: DataSnapshot | null) => void
+    JSFunction onComplete,
+    bool applyLocally,
+  });
+
+  /// Writes multiple values to the Database at once.
+  external JSPromise update(
+    JSObject values, [
+    // (a: Error | null) => void
+    JSFunction onComplete,
+  ]);
+}
+
 /// Server values
 extension type ServerValue._(JSObject _) implements JSObject {
   /// A placeholder value for auto-populating the current timestamp (time since
@@ -289,4 +363,13 @@ extension type ServerValue._(JSObject _) implements JSObject {
   /// Returns a placeholder value that can be used to atomically increment the
   /// current database value by the provided delta.
   external JSObject increment(num delta);
+}
+
+/// The result of a transaction.
+extension type TransactionResult._(JSObject _) implements JSObject {
+  /// Whether the transaction was successfully committed.
+  external bool get committed;
+
+  /// The resulting data snapshot.
+  external DataSnapshot get snapshot;
 }

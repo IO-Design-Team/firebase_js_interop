@@ -1,6 +1,6 @@
 ## 0.0.7
 
-- BREAKING: Explicit imports for `admin/app`, `admin/database`, `admin/firestore`, `admin/messaging` are now required
+- BREAKING: Explicit imports for admin and functions libraries are now required
 
 ## 0.0.6
 
