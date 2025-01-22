@@ -1,4 +1,4 @@
-## NEXT
+## 0.0.8
 
 - Adds node `process.env` object
 - Moves `toJson()` extension from `JSObject` to `JSAny`
