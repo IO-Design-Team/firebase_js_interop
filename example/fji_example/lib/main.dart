@@ -131,13 +131,12 @@ class ChatScreen extends StatelessWidget {
                   final text = partial.text;
                   if (text.isEmpty) return;
                   // This will call the `onMessageCreated` function
-                  chatsRef.doc(chatId).messages.add(
+                  chatsRef.doc(chatId).messages.doc().set(
                         FjiMessage(
-                          //! Use `FieldValue.serverTimestamp()` in production
-                          timestamp: DateTime.timestamp(),
                           author: _auth.currentUser!.uid,
                           text: text,
                         ),
+                        timestampFieldValue: FieldValue.serverTimestamp(),
                       );
                 },
               );

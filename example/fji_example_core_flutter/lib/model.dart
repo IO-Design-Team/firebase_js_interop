@@ -36,7 +36,7 @@ class FjiChat extends core.FjiChat {
 @firestoreSerializable
 class FjiMessage extends core.FjiMessage {
   FjiMessage({
-    required super.timestamp,
+    super.timestamp,
     required super.author,
     required super.text,
   });

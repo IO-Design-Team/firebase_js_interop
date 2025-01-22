@@ -52,8 +52,8 @@ Json? _$JsonConverterToJson<Json, Value>(
     value == null ? null : toJson(value);
 
 FjiMessage _$FjiMessageFromJson(Map<String, dynamic> json) => FjiMessage(
-      timestamp: const FirestoreDateTimeConverter()
-          .fromJson(json['timestamp'] as Timestamp),
+      timestamp: _$JsonConverterFromJson<Timestamp, DateTime>(
+          json['timestamp'], const FirestoreDateTimeConverter().fromJson),
       author: json['author'] as String,
       text: json['text'] as String,
     );

@@ -28,8 +28,8 @@ class FjiMessage {
   final String text;
 
   FjiMessage({
-    required this.timestamp,
+    DateTime? timestamp,
     required this.author,
     required this.text,
-  });
+  }) : timestamp = timestamp ?? DateTime.timestamp();
 }
