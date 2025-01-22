@@ -11,13 +11,7 @@ import 'package:firebase_js_interop/src/admin/database/database.dart'
 
 export 'database.dart' show Database;
 export '../../database_types/index.dart'
-    show
-        DataSnapshot,
-        EventType,
-        OnDisconnect,
-        Query,
-        Reference,
-        ThenableReference;
+    show DataSnapshot, EventType, OnDisconnect, Query, Reference;
 
 export '../utils/error.dart' show FirebaseDatabaseError;
 
