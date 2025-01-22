@@ -20,6 +20,7 @@ void main() {
 
   final firestore = FirebaseAdmin.firestore.getFirestore();
   final messaging = FirebaseAdmin.messaging.getMessaging();
+  final database = FirebaseAdmin.database.getDatabase();
 
   exports['helloWorld'] = FirebaseFunctions.https.onRequest(
     (Request request, express.Response response) {
@@ -45,6 +46,16 @@ void main() {
         final chatDoc = firestore.collection('chats').doc(chatId.toDart);
         final chatSnapshot = await chatDoc.get().toDart;
         final chat = FjiChat.fromJson(chatSnapshot.data().toJson());
+
+        await database
+            .ref('chats/$chatId'.toJS)
+            .set(
+              {
+                'lastMessage': FirebaseAdmin.database.ServerValue.timestamp,
+                'messageCount': FirebaseAdmin.database.ServerValue.increment(1),
+              }.toJS,
+            )
+            .toDart;
 
         final message = FjiMessage.fromJson(event.data.data().toJson());
         await chatDoc

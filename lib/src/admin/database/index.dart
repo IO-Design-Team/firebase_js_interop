@@ -21,7 +21,7 @@ export '../utils/error.dart' show FirebaseDatabaseError;
 extension type FirebaseAdminDatabase._(JSObject _) implements JSObject {
   /// {@link https://firebase.google.com/docs/reference/js/v8/firebase.database#enablelogging | enableLogging}
   /// function from the `@firebase/database-compat` package.
-  external JSAny? enableLogging({JSAny? logger, bool? persistent});
+  external JSAny? enableLogging([JSAny logger, bool persistent]);
 
   /// {@link https://firebase.google.com/docs/reference/js/v8/firebase.database.ServerValue | ServerValue}
   /// constant from the `@firebase/database-compat` package.

@@ -214,12 +214,12 @@ extension type Query._(JSObject _) implements JSObject {
   external Query limitToLast(int limit);
 
   /// Detaches a callback previously attached with `on()`.
-  external void off({
+  external void off([
     String eventType,
     // (a: DataSnapshot, b?: string | null) => any
     JSFunction callback,
     JSObject? context,
-  });
+  ]);
 
   /// Gets the most up-to-date result for this query.
   external JSPromise<DataSnapshot> get();
@@ -298,11 +298,11 @@ extension type Reference._(JSObject _) implements Query {
   /// Generates a new child location using a unique key and returns its
   /// [Reference].
   // TODO: Properly handle ThenableReference
-  external JSPromise<Reference> push({
+  external JSPromise<Reference> push([
     JSAny? value,
     // (a: Error | null) => any
     JSFunction onComplete,
-  });
+  ]);
 
   /// Removes the data at this Database location.
   external JSPromise remove([
@@ -339,11 +339,11 @@ extension type Reference._(JSObject _) implements Query {
   /// Atomically modifies the data at this location.
   external JSPromise<TransactionResult> transaction(
     // (a: any) => any
-    JSFunction transactionUpdate, {
+    JSFunction transactionUpdate, [
     // (a: Error | null, b: boolean, c: DataSnapshot | null) => void
     JSFunction onComplete,
     bool applyLocally,
-  });
+  ]);
 
   /// Writes multiple values to the Database at once.
   external JSPromise update(
