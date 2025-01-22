@@ -1,3 +1,8 @@
+## NEXT
+
+- Adds node `process.env` object
+- Moves `toJson()` extension from `JSObject` to `JSAny`
+
 ## 0.0.7
 
 - Adds interop for `admin/database`
