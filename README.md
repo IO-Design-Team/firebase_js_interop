@@ -85,7 +85,11 @@ This means the base `{app}_core` package _cannot_ depend on anything that depend
 
 ### Create the Firebase project
 
-Run `firebase init` in `{app}_firebase`. Choose javascript as the language for Cloud Functions.
+1. Run `firebase init` in `{app}_firebase`
+2. Choose javascript as the language for Cloud Functions
+3. Say no to ESLint
+4. Say yes to installing dependencies with npm
+5. Delete the generated `index.js` file
 
 ### Set up FCF for Dart
 
@@ -112,6 +116,8 @@ Add the following ignores
 ```
 
 #### functions/.gitignore
+
+Add the following ignores
 
 ```
 # Compiled JavaScript files
