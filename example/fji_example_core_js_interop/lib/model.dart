@@ -1,6 +1,6 @@
+import 'package:firebase_js_interop/admin/firestore.dart';
 import 'package:firebase_js_interop/converters.dart';
 import 'package:fji_example_core/model.dart' as core;
-import 'package:firebase_js_interop/admin.dart';
 
 part 'model.g.dart';
 

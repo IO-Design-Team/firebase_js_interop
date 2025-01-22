@@ -1,10 +1,10 @@
 import 'package:firebase_js_interop/admin.dart';
 import 'package:firebase_js_interop/node.dart';
 
-export 'src/admin/app/index.dart';
-export 'src/admin/database/index.dart';
-export 'src/admin/firestore/index.dart';
-export 'src/admin/messaging/index.dart';
+export 'src/admin/app/index.dart' show FirebaseAdminApp;
+export 'src/admin/database/index.dart' show FirebaseAdminDatabase;
+export 'src/admin/firestore/index.dart' show FirebaseAdminFirestore;
+export 'src/admin/messaging/index.dart' show FirebaseAdminMessaging;
 
 /// Access to Firebase Admin components
 abstract final class FirebaseAdmin {

@@ -1,5 +1,5 @@
+import 'package:firebase_js_interop/admin/firestore.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:firebase_js_interop/admin.dart';
 import 'package:firebase_js_interop/js.dart';
 
 /// A [JsonSerializable] annotation that adds support for Firestore types

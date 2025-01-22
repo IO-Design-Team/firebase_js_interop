@@ -17,7 +17,8 @@
 
 import 'dart:js_interop';
 
-import 'package:firebase_js_interop/admin.dart';
+import 'package:firebase_js_interop/admin/app.dart';
+import 'package:firebase_js_interop/admin/messaging.dart';
 
 /// Messaging service bound to the provided app.
 extension type Messaging._(JSObject _) implements JSObject {

@@ -1,6 +1,9 @@
 import 'dart:js_interop';
 import 'dart:js_interop_unsafe';
 
+import 'package:firebase_js_interop/admin/app.dart';
+import 'package:firebase_js_interop/admin/firestore.dart';
+import 'package:firebase_js_interop/admin/messaging.dart';
 import 'package:fji_example_core_js_interop/model.dart';
 import 'package:firebase_js_interop/admin.dart';
 import 'package:firebase_js_interop/functions.dart';
