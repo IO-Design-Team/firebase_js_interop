@@ -32,3 +32,5 @@ If interop for any other SDKs is necessary, please update this list
 - [firebase-admin](https://github.com/firebase/firebase-admin-node)
 - [firebase-functions](https://github.com/firebase/firebase-functions)
 - [@google-cloud/firestore](https://github.com/googleapis/nodejs-firestore)
+- [@firebase/database-types](https://github.com/firebase/firebase-js-sdk/tree/main/packages/database-types)
+- [@firebase/app-types](https://github.com/firebase/firebase-js-sdk/tree/main/packages/app-types)

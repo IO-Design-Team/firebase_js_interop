@@ -2,6 +2,7 @@ import 'package:firebase_js_interop/admin.dart';
 import 'package:firebase_js_interop/node.dart';
 
 export 'src/admin/app/index.dart';
+export 'src/admin/database/index.dart';
 export 'src/admin/firestore/index.dart';
 export 'src/admin/messaging/index.dart';
 
@@ -12,6 +13,10 @@ abstract final class FirebaseAdmin {
   /// Access to the Firebase Admin App lifecycle methods
   static FirebaseAdminApp get app =>
       require('firebase-admin/app') as FirebaseAdminApp;
+
+  /// Access to the Firebase Admin Database lifecycle methods
+  static FirebaseAdminDatabase get database =>
+      require('firebase-admin/database') as FirebaseAdminDatabase;
 
   /// Access to the Firebase Admin Firestore methods
   static FirebaseAdminFirestore get firestore =>

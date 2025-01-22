@@ -48,6 +48,9 @@ extension type PrefixedFirebaseError._(JSObject _) implements FirebaseError {
 extension type FirebaseAppError._(JSObject _)
     implements PrefixedFirebaseError {}
 
+/// Firebase Database error code structure. This extends FirebaseError.
+extension type FirebaseDatabaseError._(JSObject _) implements FirebaseError {}
+
 /// Static members on [AppErrorCodes]
 extension type AppErrorCodesStatic._(JSObject _) implements FirebaseError {
   /// APP_DELETED
