@@ -1,5 +1,6 @@
 ## 0.0.7
 
+- Adds interop for `admin/database`
 - BREAKING: Explicit imports for admin and functions libraries are now required
 
 ## 0.0.6

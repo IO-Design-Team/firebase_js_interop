@@ -19,7 +19,7 @@ Wrappers and tools for composing Firebase Cloud Functions in the Dart language
 | App Check          | 🟥     | App Check enforcement for callable functions is supported |
 | Auth               | 🟥     |                                                           |
 | Credential         | 🟥     |                                                           |
-| Database           | 🟥     |                                                           |
+| Database           | 🟩     |                                                           |
 | Eventarc           | 🟥     |                                                           |
 | Extensions         | 🟥     |                                                           |
 | Firestore          | 🟩     |                                                           |
@@ -49,6 +49,7 @@ Wrappers and tools for composing Firebase Cloud Functions in the Dart language
 | Test Lab       | 🟥     |
 | Global Options | 🟥     |
 | onInit         | 🟥     |
+| Logger         | 🟥     |
 
 ## Future
 
