@@ -2,6 +2,7 @@
 
 - Adds interop for `admin/database`
 - BREAKING: Explicit imports for admin and functions libraries are now required
+- `FirebaseFunctions` http `Request` object now extends `express.Request`
 
 ## 0.0.6
 

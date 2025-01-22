@@ -22,8 +22,10 @@
 
 import 'dart:js_interop';
 
+import 'package:firebase_js_interop/express.dart' as express;
+
 /// An express request with the wire format representation of the request body.
-extension type Request._(JSObject _) implements JSObject {
+extension type Request._(JSObject _) implements express.Request {
   /// The wire format representation of the request body.
   external JSUint8Array get rawBody;
 }
