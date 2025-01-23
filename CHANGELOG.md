@@ -1,3 +1,7 @@
+## 0.0.9
+
+- Adds `process.exit()`
+
 ## 0.0.8
 
 - Adds node `process.env` object
