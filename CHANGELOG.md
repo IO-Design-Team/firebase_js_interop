@@ -1,3 +1,7 @@
+## 0.0.10
+
+- Adds `readFileSync` from `node:fs`
+
 ## 0.0.9
 
 - Adds `process.exit()`
