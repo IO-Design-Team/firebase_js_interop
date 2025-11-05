@@ -118,6 +118,7 @@ extension type FirebaseFunctionsFirestore._(JSObject _) implements JSObject {
   /// @param handler - Event handler which is run every time a Firestore update occurs.
   external JSFunction onDocumentUpdated(
     JSAny documentOrOpts,
+    // (FirestoreEvent<QueryDocumentSnapshot> event) => FutureOr<void>
     JSFunction handler,
   );
 
