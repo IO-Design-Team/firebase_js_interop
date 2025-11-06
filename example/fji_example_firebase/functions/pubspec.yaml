@@ -1,8 +1,9 @@
 name: fjs_example_firebase_functions
 publish_to: none
+resolution: workspace
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
 
 dependencies:
   fji_example_core_js_interop:

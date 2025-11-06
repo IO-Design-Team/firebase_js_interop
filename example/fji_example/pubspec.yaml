@@ -1,9 +1,10 @@
 name: fji_example
 publish_to: none
 version: 1.0.0+1
+resolution: workspace
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
 
 dependencies:
   flutter:
@@ -12,10 +13,10 @@ dependencies:
   fji_example_core_flutter:
     path: ../fji_example_core_flutter
 
-  firebase_core: ^3.3.0
-  cloud_firestore: ^5.2.1
-  firebase_auth: ^5.1.4
-  firebase_ui_firestore: ^1.6.4
+  firebase_core: ^4.2.1
+  cloud_firestore: ^6.1.0
+  firebase_auth: ^6.1.2
+  firebase_ui_firestore: ^2.0.1
   flutter_chat_ui: ^2.9.1
   flutter_chat_types: ^3.6.2
 

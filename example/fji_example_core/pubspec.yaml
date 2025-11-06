@@ -1,8 +1,9 @@
 name: fji_example_core
 publish_to: none
+resolution: workspace
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
 
 dev_dependencies:
   rexios_lints: ^16.0.0

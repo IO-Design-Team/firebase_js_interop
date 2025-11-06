@@ -1,0 +1,24 @@
+name: example_workspace
+publish_to: none
+
+environment:
+  sdk: ^3.5.0
+
+workspace:
+  - fji_example
+  - fji_example_core
+  - fji_example_core_flutter
+  - fji_example_core_js_interop
+  - fji_example_firebase/functions
+
+dependency_overrides:
+  cloud_firestore_odm:
+    git:
+      url: https://github.com/dorklein/firestoreodm-flutter
+      ref: 074ff44b20a82d507f65c33ebf45f39153086dfb
+      path: packages/cloud_firestore_odm
+  cloud_firestore_odm_generator:
+    git:
+      url: https://github.com/dorklein/firestoreodm-flutter
+      ref: 074ff44b20a82d507f65c33ebf45f39153086dfb
+      path: packages/cloud_firestore_odm_generator

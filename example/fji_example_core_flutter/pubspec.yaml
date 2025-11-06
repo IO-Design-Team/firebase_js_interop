@@ -1,8 +1,9 @@
 name: fji_example_core_flutter
 publish_to: none
+resolution: workspace
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.5.0
   flutter: ">=1.17.0"
 
 dependencies:
@@ -21,15 +22,3 @@ dev_dependencies:
   build_runner: ^2.4.12
   json_serializable: ^6.8.0
   cloud_firestore_odm_generator: ^1.0.0-dev.88
-
-dependency_overrides:
-  cloud_firestore_odm:
-    git:
-      url: https://github.com/dorklein/firestoreodm-flutter
-      ref: 074ff44b20a82d507f65c33ebf45f39153086dfb
-      path: packages/cloud_firestore_odm
-  cloud_firestore_odm_generator:
-    git:
-      url: https://github.com/dorklein/firestoreodm-flutter
-      ref: 074ff44b20a82d507f65c33ebf45f39153086dfb
-      path: packages/cloud_firestore_odm_generator
