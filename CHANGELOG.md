@@ -1,3 +1,9 @@
+## 0.0.11
+
+- Adds `toJS` extension to `Enum`
+- Adds the `Change` class
+- Converts the `event.params` object to a `Map<String, String>` for convenience
+
 ## 0.0.10
 
 - Adds `readFileSync` from `node:fs`
