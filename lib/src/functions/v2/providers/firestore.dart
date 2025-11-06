@@ -77,7 +77,7 @@ extension type FirebaseFunctionsFirestore._(JSObject _) implements JSObject {
   /// @param handler - Event handler which is run every time a Firestore create, update, or delete occurs.
   external JSFunction onDocumentWritten(
     JSAny documentOrOpts,
-    // (FirestoreEvent<DocumentSnapshot> event) => FutureOr<void>
+    // (FirestoreEvent<Change<DocumentSnapshot>> event) => FutureOr<void>
     JSFunction handler,
   );
 
@@ -88,7 +88,7 @@ extension type FirebaseFunctionsFirestore._(JSObject _) implements JSObject {
   /// @param handler - Event handler which is run every time a Firestore create, update, or delete occurs.
   external JSFunction onDocumentWrittenWithAuthContext(
     JSAny documentOrOpts,
-    // (FirestoreAuthEvent<DocumentSnapshot> event) => FutureOr<void>
+    // (FirestoreAuthEvent<Change<DocumentSnapshot>> event) => FutureOr<void>
     JSFunction handler,
   );
 
@@ -98,7 +98,7 @@ extension type FirebaseFunctionsFirestore._(JSObject _) implements JSObject {
   /// @param handler - Event handler which is run every time a Firestore create occurs.
   external JSFunction onDocumentCreated(
     JSAny documentOrOpts,
-    // (FirestoreEvent<DocumentSnapshot> event) => FutureOr<void>
+    // (FirestoreEvent<QueryDocumentSnapshot> event) => FutureOr<void>
     JSFunction handler,
   );
 
@@ -118,7 +118,7 @@ extension type FirebaseFunctionsFirestore._(JSObject _) implements JSObject {
   /// @param handler - Event handler which is run every time a Firestore update occurs.
   external JSFunction onDocumentUpdated(
     JSAny documentOrOpts,
-    // (FirestoreEvent<QueryDocumentSnapshot> event) => FutureOr<void>
+    // (FirestoreEvent<Change<QueryDocumentSnapshot>> event) => FutureOr<void>
     JSFunction handler,
   );
 
@@ -128,7 +128,7 @@ extension type FirebaseFunctionsFirestore._(JSObject _) implements JSObject {
   /// @param handler - Event handler which is run every time a Firestore update occurs.
   external JSFunction onDocumentUpdatedWithAuthContext(
     JSAny documentOrOpts,
-    // (FirestoreAuthEvent<QueryDocumentSnapshot> event) => FutureOr<void>
+    // (FirestoreAuthEvent<Change<QueryDocumentSnapshot>> event) => FutureOr<void>
     JSFunction handler,
   );
 

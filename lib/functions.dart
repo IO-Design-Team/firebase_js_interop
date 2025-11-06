@@ -1,6 +1,7 @@
 import 'package:firebase_js_interop/functions.dart';
 import 'package:firebase_js_interop/node.dart';
 
+export 'src/functions/common/change.dart';
 export 'src/functions/common/options.dart';
 export 'src/functions/v2/providers/firestore.dart'
     show FirebaseFunctionsFirestore;
