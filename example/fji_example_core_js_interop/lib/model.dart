@@ -6,7 +6,7 @@ part 'model.g.dart';
 
 @firestoreJsInteropSerializable
 class FjiUser extends core.FjiUser {
-  FjiUser({
+  const FjiUser({
     super.displayName,
     super.profileImage,
     super.fcmTokens,
@@ -19,7 +19,7 @@ class FjiUser extends core.FjiUser {
 
 @firestoreJsInteropSerializable
 class FjiChat extends core.FjiChat {
-  FjiChat({
+  const FjiChat({
     required super.participants,
     super.lastMessage,
     super.lastMessageTime,

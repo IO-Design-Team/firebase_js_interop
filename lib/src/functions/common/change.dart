@@ -20,12 +20,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-
 // This is coped verbatim from the JS SDK
 // ignore_for_file: doc_directive_unknown
 
 import 'dart:js_interop';
-
 
 /// The Cloud Functions interface for events that change state, such as
 /// Realtime Database or Cloud Firestore `onWrite` and `onUpdate` events.

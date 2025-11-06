@@ -13,7 +13,7 @@ const firestoreSerializable = JsonSerializable(
 
 @firestoreSerializable
 class FjiUser extends core.FjiUser {
-  FjiUser({
+  const FjiUser({
     super.displayName,
     super.profileImage,
     super.fcmTokens,
@@ -25,7 +25,7 @@ class FjiChat extends core.FjiChat {
   @Id()
   final String id;
 
-  FjiChat({
+  const FjiChat({
     required this.id,
     required super.participants,
     super.lastMessage,

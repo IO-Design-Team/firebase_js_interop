@@ -42,8 +42,10 @@ void main() {
     (FirestoreEvent<QueryDocumentSnapshot> event) {
       // Make sure to return promises for async operations
       return promise(() async {
-        final chatId = event.params['chatId'] as JSString;
-        final chatDoc = firestore.collection('chats').doc(chatId.toDart);
+        final chatId = event.params['chatId'];
+        if (chatId == null) return;
+
+        final chatDoc = firestore.collection('chats').doc(chatId);
         final chatSnapshot = await chatDoc.get().toDart;
         final chat = FjiChat.fromJson(chatSnapshot.data().toJson());
 

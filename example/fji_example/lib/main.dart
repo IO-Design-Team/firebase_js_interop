@@ -6,7 +6,7 @@ import 'package:fji_example/firebase_options.dart';
 import 'package:fji_example_core_flutter/model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_ui/flutter_chat_ui.dart';
-import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
+import 'package:flutter_chat_core/flutter_chat_core.dart' as chat;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,26 +23,31 @@ void main() async {
   await auth.currentUser?.delete();
 
   // This will call the `beforeUserCreated` function
-  await auth.createUserWithEmailAndPassword(
+  final credential = await auth.createUserWithEmailAndPassword(
     email: 'test@example.com',
     password: 'password1234',
   );
 
-  runApp(const MaterialApp(home: ChatsList()));
+  final uid = credential.user?.uid;
+  if (uid == null) throw 'Failed to create user';
+
+  runApp(MaterialApp(home: ChatsList(uid: uid)));
 }
 
 class ChatsList extends StatelessWidget {
-  static final _auth = FirebaseAuth.instance;
+  final String uid;
 
-  const ChatsList({super.key});
+  const ChatsList({super.key, required this.uid});
 
   @override
   Widget build(BuildContext context) {
+    final navigator = Navigator.of(context);
+
     return Scaffold(
       appBar: AppBar(title: const Text('Chats')),
       body: FirestoreListView(
         query: chatsRef
-            .whereParticipants(arrayContains: _auth.currentUser!.uid)
+            .whereParticipants(arrayContains: uid)
             .orderByLastMessageTime(descending: true)
             .reference,
         emptyBuilder: (context) => const Center(child: Text('No chats')),
@@ -58,7 +63,7 @@ class ChatsList extends StatelessWidget {
               ],
             ),
             subtitle: lastMessage != null ? Text(lastMessage) : null,
-            onTap: () => showChat(Navigator.of(context), snap.id),
+            onTap: () => showChat(navigator, snap.id),
             leading: const Icon(Icons.chat),
           );
         },
@@ -73,24 +78,24 @@ class ChatsList extends StatelessWidget {
   void createChat(BuildContext context) async {
     final navigator = Navigator.of(context);
     final doc = chatsRef.doc();
-    final chat = FjiChat(id: doc.id, participants: {_auth.currentUser!.uid});
+    final chat = FjiChat(id: doc.id, participants: {uid});
     await doc.set(chat);
     showChat(navigator, doc.id);
   }
 
   void showChat(NavigatorState navigator, String chatId) {
     navigator.push(
-      MaterialPageRoute(builder: (context) => ChatScreen(chatId: chatId)),
+      MaterialPageRoute(
+          builder: (context) => ChatScreen(uid: uid, chatId: chatId)),
     );
   }
 }
 
 class ChatScreen extends StatelessWidget {
-  static final _auth = FirebaseAuth.instance;
-
+  final String uid;
   final String chatId;
 
-  const ChatScreen({super.key, required this.chatId});
+  const ChatScreen({super.key, required this.uid, required this.chatId});
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +111,7 @@ class ChatScreen extends StatelessWidget {
                 .messages
                 .orderByTimestamp(descending: true)
                 .reference,
-            builder: (context, snap, child) {
+            builder: (context, snap, _) {
               if (snap.hasError) {
                 return Center(child: Text('Error\n${snap.error}'));
               }
@@ -114,31 +119,41 @@ class ChatScreen extends StatelessWidget {
                 return const Center(child: CircularProgressIndicator());
               }
               return Chat(
-                user: types.User(id: _auth.currentUser!.uid),
-                messages: snap.docs
-                    .map(
-                      (snap) => types.TextMessage(
-                        id: snap.id,
-                        createdAt: snap.data().timestamp.millisecondsSinceEpoch,
-                        author: types.User(id: snap.data().author),
-                        text: snap.data().text,
-                      ),
-                    )
-                    .toList(),
-                onEndReached: () async => snap.fetchMore(),
-                isLastPage: !snap.hasMore,
-                onSendPressed: (partial) {
-                  final text = partial.text;
-                  if (text.isEmpty) return;
-                  // This will call the `onMessageCreated` function
-                  chatsRef.doc(chatId).messages.doc().set(
-                        FjiMessage(
-                          author: _auth.currentUser!.uid,
-                          text: text,
-                        ),
-                        timestampFieldValue: FieldValue.serverTimestamp(),
-                      );
+                currentUserId: uid,
+                resolveUser: (id) async {
+                  final snapshot = await usersRef.doc(id).get();
+                  final data = snapshot.data;
+                  if (data == null) return null;
+
+                  return chat.User(id: id, name: data.displayName);
                 },
+                chatController: chat.InMemoryChatController(
+                  messages: snap.docs
+                      .map(
+                        (e) => chat.Message.text(
+                          id: e.id,
+                          authorId: e.data().author,
+                          createdAt: e.data().timestamp,
+                          text: e.data().text,
+                        ),
+                      )
+                      .toList(),
+                ),
+                onMessageSend: (text) =>
+                    chatsRef.doc(chatId).messages.doc().set(
+                          FjiMessage(
+                            author: uid,
+                            text: text,
+                          ),
+                          timestampFieldValue: FieldValue.serverTimestamp(),
+                        ),
+                builders: chat.Builders(
+                  chatAnimatedListBuilder: (context, itemBuilder) =>
+                      ChatAnimatedList(
+                    itemBuilder: itemBuilder,
+                    onEndReached: () async => snap.fetchMore(),
+                  ),
+                ),
               );
             },
           );
