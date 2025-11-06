@@ -42,9 +42,13 @@ extension type FirestoreEvent<T extends JSObject>._(JSObject _)
   /// The document path
   external String get document;
 
+  @JS('params')
+  external JSObject get _params;
+
   /// An object containing the values of the path patterns.
   /// Only named capture groups will be populated - {key}, {key=*}, {key=**}
-  external JSObject get params;
+  Map<String, String> get params =>
+      (_params.dartify() as Map).cast<String, String>();
 }
 
 /// A FirestoreEvent with auth context
