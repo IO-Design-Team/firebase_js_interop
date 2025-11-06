@@ -14,10 +14,22 @@ dependencies:
 
   json_annotation: ^4.9.0
   cloud_firestore_odm: ^1.0.0-dev.87
-  cloud_firestore: ^5.2.1
+  cloud_firestore: ^6.1.0
 
 dev_dependencies:
-  rexios_lints: ^9.1.0
+  rexios_lints: ^16.0.0
   build_runner: ^2.4.12
   json_serializable: ^6.8.0
   cloud_firestore_odm_generator: ^1.0.0-dev.88
+
+dependency_overrides:
+  cloud_firestore_odm:
+    git:
+      url: https://github.com/dorklein/firestoreodm-flutter
+      ref: 074ff44b20a82d507f65c33ebf45f39153086dfb
+      path: packages/cloud_firestore_odm
+  cloud_firestore_odm_generator:
+    git:
+      url: https://github.com/dorklein/firestoreodm-flutter
+      ref: 074ff44b20a82d507f65c33ebf45f39153086dfb
+      path: packages/cloud_firestore_odm_generator

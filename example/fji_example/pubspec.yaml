@@ -16,13 +16,13 @@ dependencies:
   cloud_firestore: ^5.2.1
   firebase_auth: ^5.1.4
   firebase_ui_firestore: ^1.6.4
-  flutter_chat_ui: ^1.6.15
+  flutter_chat_ui: ^2.9.1
   flutter_chat_types: ^3.6.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  rexios_lints: ^9.2.0
+  rexios_lints: ^16.0.0
 
 flutter:
   uses-material-design: true
