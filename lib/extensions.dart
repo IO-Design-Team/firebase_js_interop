@@ -11,3 +11,9 @@ extension FirebaseJsInteropMapExtension on Map<String, dynamic> {
   /// Convert a [Map<String, dynamic>] to a [JSObject]
   JSObject get toJS => jsify() as JSObject;
 }
+
+/// Adds convenience methods to [Enum]
+extension FirebaseJsInteropEnumExtension on Enum {
+  /// Convert an [Enum] to a JS string
+  JSString get toJS => name.toJS;
+}
