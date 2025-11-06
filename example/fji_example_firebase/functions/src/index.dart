@@ -39,7 +39,7 @@ void main() {
 
   exports['onMessageCreated'] = FirebaseFunctions.firestore.onDocumentCreated(
     '/chats/{chatId}/messages/{messageId}'.toJS,
-    (FirestoreEvent<DocumentSnapshot> event) {
+    (FirestoreEvent<QueryDocumentSnapshot> event) {
       // Make sure to return promises for async operations
       return promise(() async {
         final chatId = event.params['chatId'] as JSString;
