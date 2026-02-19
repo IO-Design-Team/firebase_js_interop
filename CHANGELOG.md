@@ -1,3 +1,7 @@
+## 0.0.12
+
+- Fixes issue with pana's WASM compatibility check
+
 ## 0.0.11
 
 - Adds `toJS` extension to `Enum`
