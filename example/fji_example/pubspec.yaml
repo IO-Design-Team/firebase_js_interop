@@ -14,7 +14,7 @@ dependencies:
     path: ../fji_example_core_flutter
 
   firebase_core: ^4.2.1
-  cloud_firestore: ^6.1.0
+  cloud_firestore: ^6.10.2
   firebase_auth: ^6.1.2
   firebase_ui_firestore: ^2.0.1
   flutter_chat_ui: ^2.9.1

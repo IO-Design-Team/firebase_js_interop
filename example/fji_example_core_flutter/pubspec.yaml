@@ -15,7 +15,7 @@ dependencies:
 
   json_annotation: ^4.9.0
   cloud_firestore_odm: ^1.0.0-dev.87
-  cloud_firestore: ^6.1.0
+  cloud_firestore: ^6.10.2
 
 dev_dependencies:
   rexios_lints: ^16.0.0
