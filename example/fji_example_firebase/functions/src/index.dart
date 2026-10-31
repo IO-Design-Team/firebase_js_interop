@@ -89,8 +89,11 @@ void main() {
                     ),
                   )
                   .toDart;
-            } on FirebaseError catch (error) {
-              if (error.code == 'messaging/registration-token-not-registered') {
+            } catch (error) {
+              if (!error.isA<FirebaseError>()) rethrow;
+              final firebaseError = error as FirebaseError;
+              if (firebaseError.code ==
+                  'messaging/registration-token-not-registered') {
                 await firestore
                     .collection('users')
                     .doc(participant)

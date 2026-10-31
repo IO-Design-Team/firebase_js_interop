@@ -12,6 +12,8 @@ workspace:
   - fji_example_firebase/functions
 
 dependency_overrides:
+  analyzer: ^14.7.0
+  source_gen: ^4.3.1
   cloud_firestore_odm:
     git:
       url: https://github.com/dorklein/firestoreodm-flutter

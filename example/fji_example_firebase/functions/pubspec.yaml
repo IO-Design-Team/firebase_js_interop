@@ -12,4 +12,4 @@ dependencies:
     path: ../../../
 
 dev_dependencies:
-  rexios_lints: ^16.0.0
+  rexios_lints: ^19.0.0
