@@ -19,11 +19,12 @@ dependencies:
   firebase_ui_firestore: ^2.0.1
   flutter_chat_ui: ^2.9.1
   flutter_chat_core: ^2.8.0
+  material_ui: ^1.9.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  rexios_lints: ^16.0.0
+  rexios_lints: ^19.0.0
 
 flutter:
   uses-material-design: true
