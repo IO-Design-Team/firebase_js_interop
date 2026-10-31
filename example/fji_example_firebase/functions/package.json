@@ -6,15 +6,16 @@
   },
   "description": "Cloud Functions for Firebase",
   "engines": {
-    "node": "18"
+    "node": "22"
   },
   "main": "lib/index.js",
   "dependencies": {
-    "firebase-admin": "^12.1.0",
-    "firebase-functions": "^6.2.0"
+    "firebase-admin": "^14.5.0",
+    "firebase-functions": "^7.4.0"
   },
-  "devDependencies": {
-    "firebase-functions-test": "^3.1.0"
+  "overrides": {
+    "glob": "^14.0.3",
+    "minimatch": "^11.0.3"
   },
   "private": true
 }
